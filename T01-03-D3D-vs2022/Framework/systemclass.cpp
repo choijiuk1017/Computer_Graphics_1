@@ -1,6 +1,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Filename: systemclass.cpp
 ////////////////////////////////////////////////////////////////////////////////
+// 
+// Direct3D 엔진을 실행하고 관리하는 핵심 컨트롤러
+// 전체 시스템을 실행하고 제어하는 시스템 관리자
+// 하는 일
+// 윈도우 창 생성
+// 키보드 입력 받음
+// 그래픽스 초기화
+// 매 프레임마다 화면 그림
+// 종료 시 모든 것을 정리
+
 #include "systemclass.h"
 
 
@@ -20,7 +30,8 @@ SystemClass::~SystemClass()
 {
 }
 
-
+// 딱 한번만 호출
+// 모든 시스템 시작
 bool SystemClass::Initialize()
 {
 	int screenWidth, screenHeight;
@@ -28,13 +39,17 @@ bool SystemClass::Initialize()
 
 
 	// Initialize the width and height of the screen to zero before sending the variables into the function.
+	// 화면 해상도 초기화
 	screenWidth = 0;
 	screenHeight = 0;
 
 	// Initialize the windows api.
+	// 윈도우 창 만들기
+	// 해상도도 결정됨
 	InitializeWindows(screenWidth, screenHeight);
 
 	// Create the input object.  This object will be used to handle reading the keyboard input from the user.
+	// 입력 클래스 생성 및 초기화
 	m_Input = new InputClass;
 	if(!m_Input)
 	{
@@ -45,6 +60,7 @@ bool SystemClass::Initialize()
 	m_Input->Initialize();
 
 	// Create the graphics object.  This object will handle rendering all the graphics for this application.
+	// 그래픽 클래스 생성 및 초기화
 	m_Graphics = new GraphicsClass;
 	if(!m_Graphics)
 	{
@@ -61,7 +77,10 @@ bool SystemClass::Initialize()
 	return true;
 }
 
-
+// 앱 종료 시 호출
+// 그래픽스 종료 및 해제
+// 입력 클래스 해제
+// 윈도우 종료
 void SystemClass::Shutdown()
 {
 	// Release the graphics object.
@@ -85,7 +104,7 @@ void SystemClass::Shutdown()
 	return;
 }
 
-
+// 앱이 계속 돌아가는 메인 루프
 void SystemClass::Run()
 {
 	MSG msg;
@@ -97,6 +116,7 @@ void SystemClass::Run()
 	
 	// Loop until there is a quit message from the window or the user.
 	done = false;
+	// 이 루프는 무한히 반복되다가 창을 닫거나 Frame()이 false를 반환하면 종료됨
 	while(!done)
 	{
 		// Handle the windows messages.
@@ -126,7 +146,8 @@ void SystemClass::Run()
 	return;
 }
 
-
+// 매 프레임마다 호출됨
+// 한 프레임을 처리하는 함수
 bool SystemClass::Frame()
 {
 	bool result;
@@ -135,11 +156,11 @@ bool SystemClass::Frame()
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))
 	{
-		return false;
+		return false; // ESC 눌리면 종료
 	}
 
 	// Do the frame processing for the graphics object.
-	result = m_Graphics->Frame();
+	result = m_Graphics->Frame(); // 실제 그래픽 그리기
 	if(!result)
 	{
 		return false;
@@ -148,12 +169,13 @@ bool SystemClass::Frame()
 	return true;
 }
 
-
+// 키보드 이벤트 처리
 LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam, LPARAM lparam)
 {
 	switch(umsg)
 	{
 		// Check if a key has been pressed on the keyboard.
+		// 키 눌림 기록
 		case WM_KEYDOWN:
 		{
 			// If a key is pressed send it to the input object so it can record that state.
@@ -162,6 +184,7 @@ LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam
 		}
 
 		// Check if a key has been released on the keyboard.
+		// 키 뗌 기록
 		case WM_KEYUP:
 		{
 			// If a key is released then send it to the input object so it can unset the state for that key.
@@ -170,6 +193,7 @@ LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam
 		}
 
 		// Any other messages send to the default message handler as our application won't make use of them.
+		// 기타 메시지는 기본처리기로 넘김
 		default:
 		{
 			return DefWindowProc(hwnd, umsg, wparam, lparam);
@@ -177,7 +201,7 @@ LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam
 	}
 }
 
-
+// 윈도우 창 직접 생성
 void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 {
 	WNDCLASSEX wc;
@@ -209,10 +233,12 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	wc.cbSize        = sizeof(WNDCLASSEX);
 	
 	// Register the window class.
+	// 윈도우 시스템에 등록
 	RegisterClassEx(&wc);
 
 	// Determine the resolution of the clients desktop screen.
-	screenWidth  = GetSystemMetrics(SM_CXSCREEN);
+	// 해상도 설정
+	screenWidth  = GetSystemMetrics(SM_CXSCREEN); 
 	screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
 	// Setup the screen settings depending on whether it is running in full screen or in windowed mode.
@@ -244,22 +270,29 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	}
 
 	// Create the window with the screen settings and get the handle to it.
+	// 실제 창 생성
 	m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, m_applicationName, m_applicationName, 
 						    WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP,
 						    posX, posY, screenWidth, screenHeight, NULL, NULL, m_hinstance, NULL);
 
 	// Bring the window up on the screen and set it as main focus.
+	// 창 표시
 	ShowWindow(m_hwnd, SW_SHOW);
 	SetForegroundWindow(m_hwnd);
 	SetFocus(m_hwnd);
 
 	// Hide the mouse cursor.
+	// 마우스 숨기기
 	ShowCursor(false);
 
 	return;
 }
 
-
+// 윈도우를 제거하는 반대 과정
+// 1. 마우스 커서 다시 보이게
+// 2. 전체화면 모드였다면 원래대로 복원
+// 3. 창 제거
+// 4. 클래스에 등록 해제
 void SystemClass::ShutdownWindows()
 {
 	// Show the mouse cursor.
@@ -285,12 +318,14 @@ void SystemClass::ShutdownWindows()
 	return;
 }
 
-
+// 윈도우 메시지 콜백
+// 윈도우 시스템이 보내는 메시지를 받아 처리
 LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 {
 	switch(umessage)
 	{
 		// Check if the window is being destroyed.
+		// 창 닫기
 		case WM_DESTROY:
 		{
 			PostQuitMessage(0);
@@ -298,6 +333,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 		}
 
 		// Check if the window is being closed.
+		// 창 닫기
 		case WM_CLOSE:
 		{
 			PostQuitMessage(0);		

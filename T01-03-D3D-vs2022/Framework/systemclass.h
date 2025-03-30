@@ -46,12 +46,12 @@ private:
 	void ShutdownWindows();
 
 private:
-	LPCWSTR m_applicationName;
-	HINSTANCE m_hinstance;
-	HWND m_hwnd;
+	LPCWSTR m_applicationName; // 프로그램 이름
+	HINSTANCE m_hinstance; // 애플리케이션 인스턴스 핸들
+	HWND m_hwnd; // 윈도우 핸들(윈도우 창)
 
-	InputClass* m_Input;
-	GraphicsClass* m_Graphics;
+	InputClass* m_Input; // 키보드 입력을 추적하는 객체
+	GraphicsClass* m_Graphics; // 그래픽 처리를 담당하는 객체
 };
 
 

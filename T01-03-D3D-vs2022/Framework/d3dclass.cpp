@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "d3dclass.h"
 
+// 화면 주사율을 위한 초기값 설정
 D3DClass::D3DClass()
 {
 	m_refreshRateNumerator = 0;
@@ -19,26 +20,29 @@ D3DClass::~D3DClass()
 {
 }
 
-
+// 전체 그래픽 시스템 설정
+// 화면에 그리기 위해 필요한 준비
 bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hwnd, bool fullscreen, 
 						  float screenDepth, float screenNear)
 {
-	InitializeGraphicsHW(screenWidth, screenHeight, vsync);
-	InitializeSwapBuffer(screenWidth, screenHeight, hwnd, fullscreen);
-	InitializeDepthStencilBuffer(screenWidth, screenHeight);
-	InitializeRasterizer();
-	InitializeViewport(screenWidth, screenHeight);
+	InitializeGraphicsHW(screenWidth, screenHeight, vsync); // 그래픽 카드 정보 수집
+	InitializeSwapBuffer(screenWidth, screenHeight, hwnd, fullscreen); // 화면용 버퍼 설정
+	InitializeDepthStencilBuffer(screenWidth, screenHeight); // 깊이 / 스텐실 버퍼 설정
+	InitializeRasterizer(); // 폴리곤 렌더링 방식 설정
+	InitializeViewport(screenWidth, screenHeight); // 화면 크기 설정
 
     return true;
 }
 
-
+// 어떤 GPU가 있는 지 확인
+// 화면 주사율 확인
+// GPU 이름과 메모리 크기 저장
 bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsync)
 {
 	HRESULT result;
 	int error;
 
-	IDXGIFactory* factory;
+	IDXGIFactory* factory; 
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
 	unsigned int numModes, i, stringLength;
@@ -49,20 +53,23 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 	m_vsync_enabled = vsync;
 
 	// Create a DirectX graphics interface factory.
-	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
+	// CPU 정보 가져올 팩토리 생성
+	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory); 
 	if (FAILED(result))
 	{
 		return false;
 	}
 
 	// Use the factory to create an adapter for the primary graphics interface (video card).
-	result = factory->EnumAdapters(0, &adapter);
+	// 첫 번째 그래칙 카드 선택
+	result = factory->EnumAdapters(0, &adapter); 
 	if (FAILED(result))
 	{
 		return false;
 	}
 
 	// Enumerate the primary adapter output (monitor).
+	// 모니터 정보 얻기
 	result = adapter->EnumOutputs(0, &adapterOutput);
 	if (FAILED(result))
 	{
@@ -84,6 +91,7 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 	}
 
 	// Now fill the display mode list structures.
+	// 가능한 해상도 + 주사율 리스트 얻기
 	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, displayModeList);
 	if (FAILED(result))
 	{
@@ -92,6 +100,8 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 
 	// Now go through all the display modes and find the one that matches the screen width and height.
 	// When a match is found store the numerator and denominator of the refresh rate for that monitor.
+
+	// 현재 해상도에 맞는 주사율 정보를 저장
 	for (i = 0; i < numModes; i++)
 	{
 		if (displayModeList[i].Width == (unsigned int)screenWidth)
@@ -105,6 +115,7 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 	}
 
 	// Get the adapter (video card) description.
+	// GPU 이름과 메모리 얻기
 	result = adapter->GetDesc(&adapterDesc);
 	if (FAILED(result))
 	{
@@ -115,6 +126,7 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 	m_videoCardMemory = (int)(adapterDesc.DedicatedVideoMemory / 1024 / 1024);
 
 	// Convert the name of the video card to a character array and store it.
+	// string(유니코드)을 char 배열로 변환 (GPU 이름 저장 용)
 	error = wcstombs_s(& stringLength , m_videoCardDescription, 128, adapterDesc.Description, 128);
 	if (error != 0)
 	{
@@ -140,11 +152,16 @@ bool D3DClass::InitializeGraphicsHW(int screenWidth, int screenHeight, bool vsyn
 	return true;
 }
 
+// 백버퍼(후면 버퍼) 설정
+// 그린 화면을 잠깐 저장할 공간인 백 버퍼 생성
+// GPU와 Direct3D 디바이스를 연결
+
+// 스왑 체인 : 그린 이미지를 보관해두는 버퍼, 화면에 보여줄 때는 백버퍼를 "앞면(프론트 버퍼)" 으로 전환
 bool D3DClass::InitializeSwapBuffer(int screenWidth, int screenHeight, HWND hwnd, bool fullscreen)
 {
 	HRESULT result;
 
-	DXGI_SWAP_CHAIN_DESC swapChainDesc;
+	DXGI_SWAP_CHAIN_DESC swapChainDesc; // 버퍼 개수, 해상도, 포맷, 창 모드 여부 등을 설정
 	D3D_FEATURE_LEVEL featureLevel;
 	ID3D11Texture2D* backBufferPtr;
 
@@ -207,6 +224,7 @@ bool D3DClass::InitializeSwapBuffer(int screenWidth, int screenHeight, HWND hwnd
 	featureLevel = D3D_FEATURE_LEVEL_11_0;
 
 	// Create the swap chain, Direct3D device, and Direct3D device context.
+	// 디바이스, 디바이스 컨텍스트, 스왑 체인 생성
 	result = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel, 1,
 		D3D11_SDK_VERSION, &swapChainDesc, &m_swapChain, &m_device, NULL, &m_deviceContext);
 	if (FAILED(result))
@@ -215,6 +233,7 @@ bool D3DClass::InitializeSwapBuffer(int screenWidth, int screenHeight, HWND hwnd
 	}
 
 	// Get the pointer to the back buffer.
+	// 백버퍼 포인터 가져오기
 	result = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBufferPtr);
 	if (FAILED(result))
 	{
@@ -222,6 +241,7 @@ bool D3DClass::InitializeSwapBuffer(int screenWidth, int screenHeight, HWND hwnd
 	}
 
 	// Create the render target view with the back buffer pointer.
+	// 그릴 대상 생성
 	result = m_device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView);
 	if (FAILED(result))
 	{
@@ -235,6 +255,10 @@ bool D3DClass::InitializeSwapBuffer(int screenWidth, int screenHeight, HWND hwnd
 	return true;
 }
 
+// 화면에 그릴 때 앞에 있는 것을 표현하기 위한 깊이 검사
+// 특정 영역만 그리게 하려면 스텐실 검사도 필요
+// 깊이 버퍼: z값을 저장하는 버퍼, 누가 더 앞에 있는지 비교해서 가려야 할 건 안보이게 해줌
+// 스텐실 버퍼: 마스킹 기능, 그리는 것에 제한을 둬서 일부만 그리게 함
 bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 {
 	HRESULT result;
@@ -251,7 +275,7 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	depthBufferDesc.Height = screenHeight;
 	depthBufferDesc.MipLevels = 1;
 	depthBufferDesc.ArraySize = 1;
-	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT; // 24 비트는 깊이 정보, 8비트는 스텐실 정보
 	depthBufferDesc.SampleDesc.Count = 1;
 	depthBufferDesc.SampleDesc.Quality = 0;
 	depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -260,6 +284,7 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	depthBufferDesc.MiscFlags = 0;
 
 	// Create the texture for the depth buffer using the filled out description.
+	// 깊이/스텐실 데이터를 저장할 공간 생성
 	result = m_device->CreateTexture2D(&depthBufferDesc, NULL, &m_depthStencilBuffer);
 	if (FAILED(result))
 	{
@@ -291,6 +316,7 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	depthStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
 
 	// Create the depth stencil state.
+	// 깊이/스텐실 검사 규칙 생성
 	result = m_device->CreateDepthStencilState(&depthStencilDesc, &m_depthStencilState);
 	if (FAILED(result))
 	{
@@ -298,6 +324,7 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	}
 
 	// Set the depth stencil state.
+	// GPU에 적용
 	m_deviceContext->OMSetDepthStencilState(m_depthStencilState, 1);
 
 	// Initialize the depth stencil view.
@@ -309,6 +336,7 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	depthStencilViewDesc.Texture2D.MipSlice = 0;
 
 	// Create the depth stencil view.
+	// 뷰 생성
 	result = m_device->CreateDepthStencilView(m_depthStencilBuffer, &depthStencilViewDesc, &m_depthStencilView);
 	if (FAILED(result))
 	{
@@ -316,11 +344,13 @@ bool D3DClass::InitializeDepthStencilBuffer(int screenWidth, int screenHeight)
 	}
 
 	// Bind the render target view and depth stencil buffer to the output render pipeline.
+	// 렌더 타겟 + 깊이 스텐실 연결
 	m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
 
 	return true;
 }
 
+// 폴리곤을 어떤 방식으로 그릴지 설정
 bool D3DClass::InitializeRasterizer()
 {
 	HRESULT result;
@@ -329,11 +359,11 @@ bool D3DClass::InitializeRasterizer()
 
 	// Setup the raster description which will determine how and what polygons will be drawn.
 	rasterDesc.AntialiasedLineEnable = false;
-	rasterDesc.CullMode = D3D11_CULL_BACK;
+	rasterDesc.CullMode = D3D11_CULL_BACK; // 뒷면은 안그려서 성능 향상
 	rasterDesc.DepthBias = 0;
 	rasterDesc.DepthBiasClamp = 0.0f;
 	rasterDesc.DepthClipEnable = true;
-	rasterDesc.FillMode = D3D11_FILL_SOLID;
+	rasterDesc.FillMode = D3D11_FILL_SOLID; // 면을 꽉 채우기
 	rasterDesc.FrontCounterClockwise = false;
 	rasterDesc.MultisampleEnable = false;
 	rasterDesc.ScissorEnable = false;
@@ -347,29 +377,36 @@ bool D3DClass::InitializeRasterizer()
 	}
 
 	// Now set the rasterizer state.
+	// 설정 적용
 	m_deviceContext->RSSetState(m_rasterState);
 
 	return true;
 }
 
+
+// 출력 영역 설정
+// 해상도에 맞춰 뷰포트 설정
 bool D3DClass::InitializeViewport(int screenWidth, int screenHeight)
 {
 	D3D11_VIEWPORT viewport;
 
 	// Setup the viewport for rendering.
-	viewport.Width = (float)screenWidth;
-	viewport.Height = (float)screenHeight;
+	viewport.Width = (float)screenWidth; // 현재 화면 크기
+	viewport.Height = (float)screenHeight; // 현재 화면 크기
 	viewport.MinDepth = 0.0f;
 	viewport.MaxDepth = 1.0f;
 	viewport.TopLeftX = 0.0f;
 	viewport.TopLeftY = 0.0f;
 
 	// Create the viewport.
+	// 설정 적용
 	m_deviceContext->RSSetViewports(1, &viewport);
 
 	return true;
 }
 
+// 할당했던 Direct3D 리소스 해제
+// 메모리 누수 방지를 위한 필수 작업
 void D3DClass::Shutdown()
 {
 
@@ -388,7 +425,7 @@ void D3DClass::Shutdown()
 	return;
 }
 
-
+// 그릴 준비
 void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 {
 	float color[4];
@@ -401,26 +438,30 @@ void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 	color[3] = alpha;
 
 	// Clear the back buffer.
+	// 백버퍼 색상 초기화
 	m_deviceContext->ClearRenderTargetView(m_renderTargetView, color);
 
 	// Clear the depth buffer.
+	// 깊이/스텐실 초기화
 	m_deviceContext->ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
 	return;
 }
 
-
+// 화면에 출력
 void D3DClass::EndScene()
 {
 	// Present the back buffer to the screen since rendering is complete.
 	if (m_vsync_enabled)
 	{
 		// Lock to screen refresh rate.
+		// 화면 찢김 방지
 		m_swapChain->Present(1, 0);
 	}
 	else
 	{
 		// Present as fast as possible.
+		//최대한 빠르게 출력
 		m_swapChain->Present(0, 0);
 	}
 
@@ -428,17 +469,19 @@ void D3DClass::EndScene()
 }
 
 
+// 디바이스 포인터 변환
 ID3D11Device* D3DClass::GetDevice()
 {
 	return m_device;
 }
 
-
+// 디바이스 컨텍스트 전환
 ID3D11DeviceContext* D3DClass::GetDeviceContext()
 {
 	return m_deviceContext;
 }
 
+// GPU 이름과 메모리 크기 변환
 void D3DClass::GetVideoCardInfo(char* cardName, int& memory)
 {
 	strcpy_s(cardName, 128, m_videoCardDescription);

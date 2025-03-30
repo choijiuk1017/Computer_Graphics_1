@@ -38,7 +38,7 @@ private:
 	bool Render();
 
 private:
-	D3DClass* m_D3D;
+	D3DClass* m_D3D; // Direct3D 초기화/관리하는 핵심 클래스 포인터
 };
 
 #endif
