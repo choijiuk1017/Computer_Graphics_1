@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\modelclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\modelclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\modelclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\data\\colorShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\data\\colorShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,42 +46,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "systemclass.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\systemclass.cpp",
-              "RelativeDocumentMoniker": "Framework\\systemclass.cpp",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\systemclass.cpp",
-              "RelativeToolTip": "Framework\\systemclass.cpp",
-              "ViewState": "AgIAANIAAAAAAAAAAAAAAO4AAAATAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "graphicsclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\graphicsclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\graphicsclass.cpp",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\graphicsclass.cpp",
+              "RelativeToolTip": "Framework\\graphicsclass.cpp",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAAwLUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T15:39:07.792Z",
+              "WhenOpened": "2025-04-08T07:14:48.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "cameraclass.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.cpp",
-              "RelativeDocumentMoniker": "Framework\\cameraclass.cpp",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.cpp",
-              "RelativeToolTip": "Framework\\cameraclass.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "modelclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\modelclass.cpp",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp",
+              "RelativeToolTip": "Framework\\modelclass.cpp",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T15:38:34.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "cameraclass.h",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.h",
-              "RelativeDocumentMoniker": "Framework\\cameraclass.h",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.h",
-              "RelativeToolTip": "Framework\\cameraclass.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-07T15:38:32.427Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T15:32:37.726Z"
             },
             {
               "$type": "Document",
@@ -87,14 +77,49 @@
               "RelativeDocumentMoniker": "Framework\\modelclass.h",
               "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.h",
               "RelativeToolTip": "Framework\\modelclass.h",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-07T15:32:51.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T15:32:51.703Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "colorShader.hlsl",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\data\\colorShader.hlsl",
+              "RelativeDocumentMoniker": "Framework\\data\\colorShader.hlsl",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\data\\colorShader.hlsl",
+              "RelativeToolTip": "Framework\\data\\colorShader.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-04-08T07:10:37.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "cameraclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\cameraclass.cpp",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.cpp",
+              "RelativeToolTip": "Framework\\cameraclass.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-07T15:38:34.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "cameraclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.h",
+              "RelativeDocumentMoniker": "Framework\\cameraclass.h",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\cameraclass.h",
+              "RelativeToolTip": "Framework\\cameraclass.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T15:38:32.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\main.cpp",
               "RelativeDocumentMoniker": "Framework\\main.cpp",
@@ -102,21 +127,7 @@
               "RelativeToolTip": "Framework\\main.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T15:32:43.552Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "modelclass.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp",
-              "RelativeDocumentMoniker": "Framework\\modelclass.cpp",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\T02-01-Shaders-vs2022\\Framework\\modelclass.cpp",
-              "RelativeToolTip": "Framework\\modelclass.cpp",
-              "ViewState": "AgIAAPEAAAAAAAAAAAAAwA0BAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T15:32:37.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T15:32:43.552Z"
             }
           ]
         }

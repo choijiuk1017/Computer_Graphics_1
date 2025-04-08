@@ -236,7 +236,7 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	{
 		// If windowed then set it to 800x600 resolution.
 		screenWidth  = 1000;
-		screenHeight = 1000;
+		screenHeight = 800;
 
 		// Place the window in the middle of the screen.
 		posX = (GetSystemMetrics(SM_CXSCREEN) - screenWidth)  / 2;

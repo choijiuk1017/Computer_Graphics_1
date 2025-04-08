@@ -21,11 +21,11 @@ ModelClass::~ModelClass()
 }
 
 
-bool ModelClass::Initialize(ID3D11Device* device)
+bool ModelClass::Initialize(ID3D11Device* device, int shapeType)
 {
 	bool result;
 
-
+	m_shapeType = shapeType;
 	// Initialize the vertex and index buffers.
 	result = InitializeBuffers(device);
 	if(!result)
@@ -69,20 +69,21 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
     D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 
-	// 검, 도끼 모양 용
-	//// Set the number of vertices in the vertex array.
-	//m_vertexCount = 11;
+	if (m_shapeType == 0 || m_shapeType == 1)
+	{
+		// 검, 도끼 모양 용
+		m_vertexCount = 11;
 
-	//// Set the number of indices in the index array.
-	//m_indexCount = 21;
+		m_indexCount = 21;
+	}
+	else if (m_shapeType == 2)
+	{
+		// 창 모양 용
+		m_vertexCount = 7;
 
-	// 창 모양 용
-	m_vertexCount = 7;
-
-	m_indexCount = 15;
-
-
-
+		m_indexCount = 15;
+	}
+	
 	// Create the vertex array.
 	vertices = new VertexType[m_vertexCount];
 	if(!vertices)
@@ -101,180 +102,179 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	XMFLOAT4 brown = XMFLOAT4(0.6f, 0.3f, 0.1f, 1.0f);
 	XMFLOAT4 white = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	// 검 모양 다각형
-	//// Load the vertex array with data.
-	//vertices[0].position = XMFLOAT3(-1.0f, 3.0f, 0.0f);  // Bottom left.
-	//vertices[0].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	if (m_shapeType == 0)
+	{
+		// 검 모양 다각형
+		// Load the vertex array with data.
+		vertices[0].position = XMFLOAT3(-1.0f, 3.0f, 0.0f);  // Bottom left.
+		vertices[0].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	//vertices[1].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Top middle.
-	//vertices[1].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		vertices[1].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Top middle.
+		vertices[1].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	//vertices[2].position = XMFLOAT3(1.0f, 3.0f, 0.0f);  // Bottom right.
-	//vertices[2].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+		vertices[2].position = XMFLOAT3(1.0f, 3.0f, 0.0f);  // Bottom right.
+		vertices[2].color = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	//vertices[3].position = XMFLOAT3(-1.0f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[3].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[3].position = XMFLOAT3(-1.0f, 0.0f, 0.0f);  // Bottom right.
+		vertices[3].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[4].position = XMFLOAT3(-0.3f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[4].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[4].position = XMFLOAT3(-0.3f, 0.0f, 0.0f);  // Bottom right.
+		vertices[4].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[5].position = XMFLOAT3(0.3f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[5].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[5].position = XMFLOAT3(0.3f, 0.0f, 0.0f);  // Bottom right.
+		vertices[5].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[6].position = XMFLOAT3(1.0f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[6].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[6].position = XMFLOAT3(1.0f, 0.0f, 0.0f);  // Bottom right.
+		vertices[6].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[7].position = XMFLOAT3(-1.5f, -1.0f, 0.0f);  // Bottom right.
-	//vertices[7].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[7].position = XMFLOAT3(-1.5f, -1.0f, 0.0f);  // Bottom right.
+		vertices[7].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[8].position = XMFLOAT3(1.5f, -1.0f, 0.0f);  // Bottom right.
-	//vertices[8].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
+		vertices[8].position = XMFLOAT3(1.5f, -1.0f, 0.0f);  // Bottom right.
+		vertices[8].color = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 
-	//vertices[9].position = XMFLOAT3(-0.3f, -2.0f, 0.0f);  // Bottom right.
-	//vertices[9].color = XMFLOAT4(0.6f, 0.3f, 0.1f, 1.0f);
+		vertices[9].position = XMFLOAT3(-0.3f, -2.0f, 0.0f);  // Bottom right.
+		vertices[9].color = XMFLOAT4(0.6f, 0.3f, 0.1f, 1.0f);
 
-	//vertices[10].position = XMFLOAT3(0.3f, -2.0f, 0.0f);  // Bottom right.
-	//vertices[10].color = XMFLOAT4(0.6f, 0.3f, 0.1f, 1.0f);
+		vertices[10].position = XMFLOAT3(0.3f, -2.0f, 0.0f);  // Bottom right.
+		vertices[10].color = XMFLOAT4(0.6f, 0.3f, 0.1f, 1.0f);
 
-	// 도끼 모양 다각형
-	//vertices[0].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Bottom left.
-	//vertices[0].color = brown;
+		indices[0] = 0;  // Bottom left.
+		indices[1] = 1;  // Top middle.
+		indices[2] = 2;  // Bottom right.
 
-	//vertices[1].position = XMFLOAT3(-0.3f, 3.0f, 0.0f);  // Top middle.
-	//vertices[1].color = brown;
+		indices[3] = 3;  // Bottom left.
+		indices[4] = 0;  // Top middle.
+		indices[5] = 6;  // Bottom right.
 
-	//vertices[2].position = XMFLOAT3(0.3f, 3.0f, 0.0f);  // Bottom right.
-	//vertices[2].color = brown;
+		indices[6] = 0;  // Bottom left.
+		indices[7] = 2;  // Top middle.
+		indices[8] = 6;  // Bottom right.
 
-	//vertices[3].position = XMFLOAT3(-2.0f, 4.0f, 0.0f);  // Bottom right.
-	//vertices[3].color = white;
+		indices[9] = 3;  // Bottom left.
+		indices[10] = 6;  // Top middle.
+		indices[11] = 7;  // Bottom right.
 
-	//vertices[4].position = XMFLOAT3(2.0f, 4.0f, 0.0f);  // Bottom right.
-	//vertices[4].color = white;
+		indices[12] = 3;  // Bottom left.
+		indices[13] = 6;  // Top middle.
+		indices[14] = 8;  // Bottom right.
 
-	//vertices[5].position = XMFLOAT3(-2.0f, 2.0f, 0.0f);  // Bottom right.
-	//vertices[5].color = white;
+		indices[15] = 4;  // Bottom left.
+		indices[16] = 5;  // Top middle.
+		indices[17] = 10;  // Bottom right.
 
-	//vertices[6].position = XMFLOAT3(-0.3f, 2.3f, 0.0f);  // Bottom right.
-	//vertices[6].color = gray;
+		indices[18] = 9;  // Bottom left.
+		indices[19] = 4;  // Top middle.
+		indices[20] = 10;  // Bottom right.
+	}
+	else if (m_shapeType == 1)
+	{
+		vertices[0].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Bottom left.
+		vertices[0].color = brown;
 
-	//vertices[7].position = XMFLOAT3(0.3f, 2.3f, 0.0f);  // Bottom right.
-	//vertices[7].color = gray;
+		vertices[1].position = XMFLOAT3(-0.3f, 3.0f, 0.0f);  // Top middle.
+		vertices[1].color = brown;
 
-	//vertices[8].position = XMFLOAT3(2.0f, 2.0f, 0.0f);  // Bottom right.
-	//vertices[8].color = white;
+		vertices[2].position = XMFLOAT3(0.3f, 3.0f, 0.0f);  // Bottom right.
+		vertices[2].color = brown;
 
-	//vertices[9].position = XMFLOAT3(-0.3f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[9].color = brown;
+		vertices[3].position = XMFLOAT3(-2.0f, 4.0f, 0.0f);  // Bottom right.
+		vertices[3].color = white;
 
-	//vertices[10].position = XMFLOAT3(0.3f, 0.0f, 0.0f);  // Bottom right.
-	//vertices[10].color = brown;
+		vertices[4].position = XMFLOAT3(2.0f, 4.0f, 0.0f);  // Bottom right.
+		vertices[4].color = white;
 
+		vertices[5].position = XMFLOAT3(-2.0f, 2.0f, 0.0f);  // Bottom right.
+		vertices[5].color = white;
 
-	vertices[0].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Bottom left.
-	vertices[0].color = white;
+		vertices[6].position = XMFLOAT3(-0.3f, 2.3f, 0.0f);  // Bottom right.
+		vertices[6].color = gray;
 
-	vertices[1].position = XMFLOAT3(-0.5f, 2.3f, 0.0f);  // Top middle.
-	vertices[1].color = white;
+		vertices[7].position = XMFLOAT3(0.3f, 2.3f, 0.0f);  // Bottom right.
+		vertices[7].color = gray;
 
-	vertices[2].position = XMFLOAT3(0.5f, 2.3f, 0.0f);  // Bottom right.
-	vertices[2].color = white;
+		vertices[8].position = XMFLOAT3(2.0f, 2.0f, 0.0f);  // Bottom right.
+		vertices[8].color = white;
 
-	vertices[3].position = XMFLOAT3(-0.3f, 2.0f, 0.0f);  // Bottom right.
-	vertices[3].color = brown;
+		vertices[9].position = XMFLOAT3(-0.3f, 0.0f, 0.0f);  // Bottom right.
+		vertices[9].color = brown;
 
-	vertices[4].position = XMFLOAT3(0.3f, 2.0f, 0.0f);  // Bottom right.
-	vertices[4].color = brown;
+		vertices[10].position = XMFLOAT3(0.3f, 0.0f, 0.0f);  // Bottom right.
+		vertices[10].color = brown;
 
-	vertices[5].position = XMFLOAT3(-0.3f, -2.0f, 0.0f);  // Bottom right.
-	vertices[5].color = brown;
+		indices[0] = 1;  // Bottom left.
+		indices[1] = 0;  // Top middle.
+		indices[2] = 2;  // Bottom right.
 
-	vertices[6].position = XMFLOAT3(0.3f, -2.0f, 0.0f);  // Bottom right.
-	vertices[6].color = brown;
+		indices[3] = 9;  // Bottom left.
+		indices[4] = 1;  // Top middle.
+		indices[5] = 10;  // Bottom right.
 
+		indices[6] = 10;  // Bottom left.
+		indices[7] = 1;  // Top middle.
+		indices[8] = 2;  // Bottom right.
 
-	// Load the index array with data.
-	// Create the triangle in the clockwise order (counterclockwise: back face culling).
+		indices[9] = 6;  // Bottom left.
+		indices[10] = 3;  // Top middle.
+		indices[11] = 1;  // Bottom right.
 
-	// 검 모양 다각형
-	//indices[0] = 0;  // Bottom left.
-	//indices[1] = 1;  // Top middle.
-	//indices[2] = 2;  // Bottom right.
+		indices[12] = 6;  // Bottom left.
+		indices[13] = 5;  // Top middle.
+		indices[14] = 3;  // Bottom right.
 
-	//indices[3] = 3;  // Bottom left.
-	//indices[4] = 0;  // Top middle.
-	//indices[5] = 6;  // Bottom right.
+		indices[15] = 7;  // Bottom left.
+		indices[16] = 2;  // Top middle.
+		indices[17] = 4;  // Bottom right.
 
-	//indices[6] = 0;  // Bottom left.
-	//indices[7] = 2;  // Top middle.
-	//indices[8] = 6;  // Bottom right.
+		indices[18] = 8;  // Bottom left.
+		indices[19] = 7;  // Top middle.
+		indices[20] = 4;  // Bottom right.
 
-	//indices[9] = 3;  // Bottom left.
-	//indices[10] = 6;  // Top middle.
-	//indices[11] = 7;  // Bottom right.
+	}
+	else if(m_shapeType == 2)
+	{
+		vertices[0].position = XMFLOAT3(0.0f, 4.0f, 0.0f);  // Bottom left.
+		vertices[0].color = white;
 
-	//indices[12] = 3;  // Bottom left.
-	//indices[13] = 6;  // Top middle.
-	//indices[14] = 8;  // Bottom right.
+		vertices[1].position = XMFLOAT3(-0.5f, 2.3f, 0.0f);  // Top middle.
+		vertices[1].color = white;
 
-	//indices[15] = 4;  // Bottom left.
-	//indices[16] = 5;  // Top middle.
-	//indices[17] = 10;  // Bottom right.
-	//
-	//indices[18] = 9;  // Bottom left.
-	//indices[19] = 4;  // Top middle.
-	//indices[20] = 10;  // Bottom right.
+		vertices[2].position = XMFLOAT3(0.5f, 2.3f, 0.0f);  // Bottom right.
+		vertices[2].color = white;
 
-	// 도끼 모양 다각형
-	//indices[0] = 1;  // Bottom left.
-	//indices[1] = 0;  // Top middle.
-	//indices[2] = 2;  // Bottom right.
+		vertices[3].position = XMFLOAT3(-0.3f, 2.0f, 0.0f);  // Bottom right.
+		vertices[3].color = brown;
 
-	//indices[3] = 9;  // Bottom left.
-	//indices[4] = 1;  // Top middle.
-	//indices[5] = 10;  // Bottom right.
+		vertices[4].position = XMFLOAT3(0.3f, 2.0f, 0.0f);  // Bottom right.
+		vertices[4].color = brown;
 
-	//indices[6] = 10;  // Bottom left.
-	//indices[7] = 1;  // Top middle.
-	//indices[8] = 2;  // Bottom right.
+		vertices[5].position = XMFLOAT3(-0.3f, -2.0f, 0.0f);  // Bottom right.
+		vertices[5].color = brown;
 
-	//indices[9] = 6;  // Bottom left.
-	//indices[10] = 3;  // Top middle.
-	//indices[11] = 1;  // Bottom right.
-
-	//indices[12] = 6;  // Bottom left.
-	//indices[13] = 5;  // Top middle.
-	//indices[14] = 3;  // Bottom right.
-
-	//indices[15] = 7;  // Bottom left.
-	//indices[16] = 2;  // Top middle.
-	//indices[17] = 4;  // Bottom right.
-	//
-	//indices[18] = 8;  // Bottom left.
-	//indices[19] = 7;  // Top middle.
-	//indices[20] = 4;  // Bottom right.
+		vertices[6].position = XMFLOAT3(0.3f, -2.0f, 0.0f);  // Bottom right.
+		vertices[6].color = brown;
 
 
-	indices[0] = 1;  // Bottom left.
-	indices[1] = 0;  // Top middle.
-	indices[2] = 2;  // Bottom right.
+		indices[0] = 1;  // Bottom left.
+		indices[1] = 0;  // Top middle.
+		indices[2] = 2;  // Bottom right.
 
-	indices[3] = 3;  // Bottom left.
-	indices[4] = 1;  // Top middle.
-	indices[5] = 2;  // Bottom right.
+		indices[3] = 3;  // Bottom left.
+		indices[4] = 1;  // Top middle.
+		indices[5] = 2;  // Bottom right.
 
-	indices[6] = 3;  // Bottom left.
-	indices[7] = 2;  // Top middle.
-	indices[8] = 4;  // Bottom right.
+		indices[6] = 3;  // Bottom left.
+		indices[7] = 2;  // Top middle.
+		indices[8] = 4;  // Bottom right.
 
-	indices[9] = 5;  // Bottom left.
-	indices[10] = 3;  // Top middle.
-	indices[11] = 4;  // Bottom right.
+		indices[9] = 5;  // Bottom left.
+		indices[10] = 3;  // Top middle.
+		indices[11] = 4;  // Bottom right.
 
-	indices[12] = 5;  // Bottom left.
-	indices[13] = 4;  // Top middle.
-	indices[14] = 6;  // Bottom right.
-
+		indices[12] = 5;  // Bottom left.
+		indices[13] = 4;  // Top middle.
+		indices[14] = 6;  // Bottom right.
+	}
 
 	// Set up the description of the static vertex buffer.
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;

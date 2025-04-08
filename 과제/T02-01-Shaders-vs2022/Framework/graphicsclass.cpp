@@ -8,7 +8,6 @@ GraphicsClass::GraphicsClass()
 {
 	m_D3D = 0;
 	m_Camera = 0;
-	m_Model = 0;
 	m_ColorShader = 0;
 }
 
@@ -54,18 +53,20 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Camera->SetPosition(0.0f, 0.0f, -10.0f);
 	
 	// Create the model object.
-	m_Model = new ModelClass;
-	if(!m_Model)
+	for (int i = 0; i < 3; ++i)
 	{
-		return false;
-	}
+		ModelClass* model = new ModelClass;
+		if (!model)
+			return false;
 
-	// Initialize the model object.
-	result = m_Model->Initialize(m_D3D->GetDevice());
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
+		result = model->Initialize(m_D3D->GetDevice(), i);
+		if (!result)
+		{
+			MessageBox(hwnd, L"Could not initialize a model object.", L"Error", MB_OK);
+			return false;
+		}
+
+		m_Models.push_back(model);
 	}
 
 	// Create the color shader object.
@@ -98,12 +99,15 @@ void GraphicsClass::Shutdown()
 	}
 
 	// Release the model object.
-	if(m_Model)
+	for (auto model : m_Models)
 	{
-		m_Model->Shutdown();
-		delete m_Model;
-		m_Model = 0;
+		if (model)
+		{
+        model->Shutdown();
+        delete model;
+		}
 	}
+	m_Models.clear();
 
 	// Release the camera object.
 	if(m_Camera)
@@ -158,18 +162,37 @@ bool GraphicsClass::Render()
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	m_Model->Render(m_D3D->GetDeviceContext());
-
-	// Render the model using the color shader.
-	result = m_ColorShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), 
-		worldMatrix, viewMatrix, projectionMatrix);
-	if(!result)
+	for (size_t i = 0; i < m_Models.size(); ++i)
 	{
-		return false;
+		// 크기 동일하게
+		worldMatrix *= XMMatrixScaling(0.5f, 0.5f, 0.5f);
+
+		// 각 모델마다 회전 축 다르게 설정
+		switch (i)
+		{
+		case 0:
+			worldMatrix *= XMMatrixRotationY(rotation / XM_PI); // Y축 회전
+			break;
+		case 1:
+			worldMatrix *= XMMatrixRotationX(rotation / XM_PI); // X축 회전
+			break;
+		case 2:
+			worldMatrix *= XMMatrixRotationZ(rotation / XM_PI); // Z축 회전
+			break;
+		}
+
+		// 각 모델 위치 달리함
+		worldMatrix *= XMMatrixTranslation(static_cast<float>(i * 3 - 3), 0.0f, 0.0f);
+
+		m_Models[i]->Render(m_D3D->GetDeviceContext());
+		result = m_ColorShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(),
+			worldMatrix, viewMatrix, projectionMatrix);
+		if (!result) return false;
 	}
+	rotation += 20.0f;
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();
 
 	return true;
-}
+} 
