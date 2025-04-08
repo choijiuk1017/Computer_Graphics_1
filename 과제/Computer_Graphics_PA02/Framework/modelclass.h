@@ -36,6 +36,8 @@ public:
 
 	int GetIndexCount();
 
+	XMMATRIX GetWorldMatrix() const;
+
 private:
 	bool InitializeBuffers(ID3D11Device*);
 	void ShutdownBuffers();
@@ -43,8 +45,13 @@ private:
 
 private:
 	ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
+
+	// 도형 별로 가질 월드 매트릭스
+	XMMATRIX m_worldMatrix;
+
 	int m_vertexCount, m_indexCount;
 
+	// 도형 타입
 	int m_shapeType;
 };
 

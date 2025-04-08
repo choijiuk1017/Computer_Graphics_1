@@ -146,9 +146,8 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render()
 {
-	XMMATRIX worldMatrix, viewMatrix, projectionMatrix;
+	XMMATRIX viewMatrix, projectionMatrix;
 	bool result;
-
 
 	// Clear the buffers to begin the scene.
 	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
@@ -158,38 +157,44 @@ bool GraphicsClass::Render()
 
 	// Get the world, view, and projection matrices from the camera and d3d objects.
 	m_Camera->GetViewMatrix(viewMatrix);
-	m_D3D->GetWorldMatrix(worldMatrix);
+	
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	for (size_t i = 0; i < m_Models.size(); ++i)
+	for (int i = 0; i < m_Models.size(); i++)
 	{
-		// 크기 동일하게
+		XMMATRIX worldMatrix = m_Models[i]->GetWorldMatrix();
+		m_D3D->GetWorldMatrix(worldMatrix);
+
+		m_Models[i]->Render(m_D3D->GetDeviceContext());
+
 		worldMatrix *= XMMatrixScaling(0.5f, 0.5f, 0.5f);
 
-		// 각 모델마다 회전 축 다르게 설정
 		switch (i)
 		{
 		case 0:
-			worldMatrix *= XMMatrixRotationY(rotation / XM_PI); // Y축 회전
+			worldMatrix *= XMMatrixRotationY(180.0f / XM_PI - rotation);
+			worldMatrix *= XMMatrixTranslation(-4.0f, 0.0f, 0.0f);
 			break;
+		
 		case 1:
-			worldMatrix *= XMMatrixRotationX(rotation / XM_PI); // X축 회전
+			worldMatrix *= XMMatrixRotationZ(180.0f / XM_PI - rotation);
+			worldMatrix *= XMMatrixTranslation(0.0f, 0.0f, 0.0f);
 			break;
+
 		case 2:
-			worldMatrix *= XMMatrixRotationZ(rotation / XM_PI); // Z축 회전
+			worldMatrix *= XMMatrixRotationX(180.0f / XM_PI - rotation);
+			worldMatrix *= XMMatrixTranslation(4.0f, 0.0f, 0.0f);
 			break;
 		}
 
-		// 각 모델 위치 달리함
-		worldMatrix *= XMMatrixTranslation(static_cast<float>(i * 3 - 3), 0.0f, 0.0f);
-
-		m_Models[i]->Render(m_D3D->GetDeviceContext());
 		result = m_ColorShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(),
 			worldMatrix, viewMatrix, projectionMatrix);
+
 		if (!result) return false;
 	}
-	rotation += 20.0f;
+	
+	
+	rotation += 0.1f;
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();

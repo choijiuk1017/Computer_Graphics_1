@@ -371,3 +371,9 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 	return;
 }
+
+
+XMMATRIX ModelClass::GetWorldMatrix() const
+{
+	return m_worldMatrix;
+}
