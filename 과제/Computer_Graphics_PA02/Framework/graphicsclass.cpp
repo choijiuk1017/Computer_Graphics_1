@@ -103,8 +103,8 @@ void GraphicsClass::Shutdown()
 	{
 		if (model)
 		{
-        model->Shutdown();
-        delete model;
+			model->Shutdown();
+			delete model;
 		}
 	}
 	m_Models.clear();
@@ -132,7 +132,6 @@ bool GraphicsClass::Frame()
 {
 	bool result;
 
-
 	// Render the graphics scene.
 	result = Render();
 	if(!result)
@@ -149,8 +148,25 @@ bool GraphicsClass::Render()
 	XMMATRIX viewMatrix, projectionMatrix;
 	bool result;
 
-	// Clear the buffers to begin the scene.
-	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+	switch (currentColorType)
+	{
+	case 0:
+		// Clear the buffers to begin the scene.
+		m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+		break;
+	case 1:
+		m_D3D->BeginScene(1.0f, 0.0f, 0.0f, 1.0f);
+		break;
+
+	case 2:
+		m_D3D->BeginScene(0.0f, 1.0f, 0.0f, 1.0f);
+		break;
+
+	case 3:
+		m_D3D->BeginScene(0.0f, 0.0f, 1.0f, 1.0f);
+		break;
+	}
+
 
 	// Generate the view matrix based on the camera's position.
 	m_Camera->Render();
@@ -173,17 +189,17 @@ bool GraphicsClass::Render()
 		{
 		case 0:
 			worldMatrix *= XMMatrixRotationY(180.0f / XM_PI - rotation);
-			worldMatrix *= XMMatrixTranslation(-4.0f, 0.0f, 0.0f);
+			worldMatrix *= XMMatrixTranslation(-3.0f, 0.0f, 0.0f);
 			break;
 		
 		case 1:
-			worldMatrix *= XMMatrixRotationZ(180.0f / XM_PI - rotation);
+			worldMatrix *= XMMatrixRotationX(180.0f / XM_PI - rotation);
 			worldMatrix *= XMMatrixTranslation(0.0f, 0.0f, 0.0f);
 			break;
 
 		case 2:
-			worldMatrix *= XMMatrixRotationX(180.0f / XM_PI - rotation);
-			worldMatrix *= XMMatrixTranslation(4.0f, 0.0f, 0.0f);
+			worldMatrix *= XMMatrixRotationZ(180.0f / XM_PI - rotation);
+			worldMatrix *= XMMatrixTranslation(3.0f, 0.0f, 0.0f);
 			break;
 		}
 
@@ -201,3 +217,18 @@ bool GraphicsClass::Render()
 
 	return true;
 } 
+
+void GraphicsClass::ChangeCullMode(int cullType)
+{
+	m_D3D->ChangeCullMode(cullType);
+}
+
+void GraphicsClass::ChangeFillMode(int fillType)
+{
+	m_D3D->ChangeFillMode(fillType);
+}
+
+void GraphicsClass::ChangeBackgroundColor(int colorType)
+{
+	currentColorType = colorType;
+}

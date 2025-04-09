@@ -46,6 +46,11 @@ public:
 	void BeginScene(float, float, float, float);
 	void EndScene();
 
+	void ChangeCullMode(int);
+
+	void ChangeFillMode(int);
+
+
 	ID3D11Device* GetDevice();
 	ID3D11DeviceContext* GetDeviceContext();
 
@@ -78,6 +83,9 @@ private:
 	XMMATRIX m_projectionMatrix;
 	XMMATRIX m_worldMatrix;
 	XMMATRIX m_orthoMatrix;
+
+
+	D3D11_RASTERIZER_DESC rasterDesc;
 };
 
 #endif

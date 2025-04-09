@@ -1,8 +1,0 @@
-﻿  graphicsclass.cpp
-C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\T02-01-Shaders-vs2022\Framework\graphicsclass.cpp(58,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
-C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\T02-01-Shaders-vs2022\Framework\graphicsclass.cpp(163,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  main.cpp
-  modelclass.cpp
-  systemclass.cpp
-  코드를 생성하고 있습니다...
-  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\T02-01-Shaders-vs2022\Debug\Framework.exe

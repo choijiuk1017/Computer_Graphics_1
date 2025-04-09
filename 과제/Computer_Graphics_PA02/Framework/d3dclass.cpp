@@ -351,14 +351,15 @@ bool D3DClass::InitializeRasterizer()
 {
 	HRESULT result;
 
-	D3D11_RASTERIZER_DESC rasterDesc;
-
 	// Setup the raster description which will determine how and what polygons will be drawn.
 	rasterDesc.AntialiasedLineEnable = false;
+
 	rasterDesc.CullMode = D3D11_CULL_BACK;
+
 	rasterDesc.DepthBias = 0;
 	rasterDesc.DepthBiasClamp = 0.0f;
 	rasterDesc.DepthClipEnable = true;
+
 	rasterDesc.FillMode = D3D11_FILL_SOLID;
 	rasterDesc.FrontCounterClockwise = false;
 	rasterDesc.MultisampleEnable = false;
@@ -494,6 +495,55 @@ void D3DClass::EndScene()
 	return;
 }
 
+void D3DClass::ChangeCullMode(int cullType)
+{
+	HRESULT result;
+
+	if (cullType == 0)
+	{
+		rasterDesc.CullMode = D3D11_CULL_BACK;
+	}
+	else
+	{
+		rasterDesc.CullMode = D3D11_CULL_NONE;
+	}
+
+	if (m_rasterState) m_rasterState = 0;
+
+	result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
+	if (FAILED(result))
+	{
+		return;
+	}
+
+	// Now set the rasterizer state.
+	m_deviceContext->RSSetState(m_rasterState);
+}
+
+void D3DClass::ChangeFillMode(int fillType)
+{
+	HRESULT result;
+
+	if (fillType == 0)
+	{
+		rasterDesc.FillMode = D3D11_FILL_SOLID;
+	}
+	else
+	{
+		rasterDesc.FillMode = D3D11_FILL_WIREFRAME;
+	}
+
+	if (m_rasterState) m_rasterState = 0;
+
+	result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
+	if (FAILED(result))
+	{
+		return;
+	}
+
+	// Now set the rasterizer state.
+	m_deviceContext->RSSetState(m_rasterState);
+}
 
 ID3D11Device* D3DClass::GetDevice()
 {

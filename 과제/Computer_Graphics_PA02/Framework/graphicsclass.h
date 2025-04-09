@@ -38,6 +38,9 @@ public:
 	bool Initialize(int, int, HWND);
 	void Shutdown();
 	bool Frame();
+	void ChangeCullMode(int);
+	void ChangeFillMode(int);
+	void ChangeBackgroundColor(int);
 
 private:
 	bool Render();
@@ -49,6 +52,8 @@ private:
 	ColorShaderClass* m_ColorShader;
 
 	float rotation;
+
+	int currentColorType = 0;
 };
 
 #endif

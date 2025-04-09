@@ -52,6 +52,12 @@ private:
 
 	InputClass* m_Input;
 	GraphicsClass* m_Graphics;
+	bool result;
+
+	int currentCullMode = 0;
+
+
+	bool prevKeyDown = false;
 };
 
 

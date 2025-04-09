@@ -24,8 +24,6 @@ SystemClass::~SystemClass()
 bool SystemClass::Initialize()
 {
 	int screenWidth, screenHeight;
-	bool result;
-
 
 	// Initialize the width and height of the screen to zero before sending the variables into the function.
 	screenWidth = 0;
@@ -131,11 +129,52 @@ bool SystemClass::Frame()
 {
 	bool result;
 
-
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))
 	{
 		return false;
+	}
+
+	if (m_Input->IsKeyDown('R'))
+	{
+		m_Graphics->ChangeBackgroundColor(1);
+	}
+
+
+	if (m_Input->IsKeyDown('G'))
+	{
+		m_Graphics->ChangeBackgroundColor(2);
+	}
+
+	if (m_Input->IsKeyDown('B'))
+	{
+		m_Graphics->ChangeBackgroundColor(3);
+	}
+
+
+
+	if (m_Input->IsKeyDown('W'))
+	{
+		m_Graphics->ChangeFillMode(1);
+	}
+
+	if (m_Input->IsKeyDown('S'))
+	{
+		m_Graphics->ChangeFillMode(0);
+	}
+
+	if (m_Input->IsKeyDown('C'))
+	{
+		if (!prevKeyDown)
+		{
+			currentCullMode = (currentCullMode == 0) ? 1 : 0;
+			m_Graphics->ChangeCullMode(currentCullMode);
+			prevKeyDown = true;
+		}
+	}
+	else
+	{
+		prevKeyDown = false;
 	}
 
 	// Do the frame processing for the graphics object.
@@ -158,6 +197,8 @@ LRESULT CALLBACK SystemClass::MessageHandler(HWND hwnd, UINT umsg, WPARAM wparam
 		{
 			// If a key is pressed send it to the input object so it can record that state.
 			m_Input->KeyDown((unsigned int)wparam);
+
+			
 			return 0;
 		}
 
