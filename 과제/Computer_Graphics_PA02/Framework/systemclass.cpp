@@ -177,6 +177,16 @@ bool SystemClass::Frame()
 		prevKeyDown = false;
 	}
 
+	if (m_Input->IsKeyDown('1') || m_Input->IsKeyDown(VK_NUMPAD1))
+	{
+		m_Graphics->ChangeShaderType(0);
+	}
+
+	if (m_Input->IsKeyDown('2') || m_Input->IsKeyDown(VK_NUMPAD2))
+	{
+		m_Graphics->ChangeShaderType(1);
+	}
+
 	// Do the frame processing for the graphics object.
 	result = m_Graphics->Frame();
 	if(!result)

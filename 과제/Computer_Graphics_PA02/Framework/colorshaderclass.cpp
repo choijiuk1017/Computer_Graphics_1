@@ -330,6 +330,8 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
 
+	dataPtr->shaderType = m_shaderType;
+
 	// Unlock the constant buffer.
     deviceContext->Unmap(m_matrixBuffer, 0);
 
@@ -338,6 +340,7 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 
 	// Finanly set the constant buffer in the vertex shader with the updated values.
     deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_matrixBuffer);
+	deviceContext->PSSetConstantBuffers(bufferNumber, 1, &m_matrixBuffer);
 
 	return true;
 }
@@ -359,4 +362,9 @@ void ColorShaderClass::RenderShader(ID3D11DeviceContext* deviceContext, int inde
 	deviceContext->DrawIndexed(indexCount, 0, 0);
 
 	return;
+}
+
+void ColorShaderClass::ChangeShader(int shaderType)
+{
+	m_shaderType = shaderType;
 }

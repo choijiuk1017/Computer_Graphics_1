@@ -210,7 +210,7 @@ bool GraphicsClass::Render()
 	}
 	
 	
-	rotation += 0.1f;
+	rotation += 0.05f;
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();
@@ -231,4 +231,9 @@ void GraphicsClass::ChangeFillMode(int fillType)
 void GraphicsClass::ChangeBackgroundColor(int colorType)
 {
 	currentColorType = colorType;
+}
+
+void GraphicsClass::ChangeShaderType(int shaderType)
+{
+	m_ColorShader->ChangeShader(shaderType);
 }

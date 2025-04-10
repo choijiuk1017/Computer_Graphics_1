@@ -8,7 +8,7 @@ cbuffer MatrixBuffer
 	matrix worldMatrix;
 	matrix viewMatrix;
 	matrix projectionMatrix;
-    
+    int shaderType;
 };
 
 // TYPEDEFS //
@@ -62,5 +62,16 @@ PixelInputType ColorVertexShader(VertexInputType input)
 // screen. Note that the pixel shader gets its input from the vertex shader output.
 float4 ColorPixelShader(PixelInputType input) : SV_TARGET
 {
-    return input.color;
+    if(shaderType == 0)
+    {
+        return input.color;
+    }
+    else if(shaderType == 1)
+    {
+        return input.color * 0.5f;
+    }
+    else
+    {
+        return input.color;
+    }
 }

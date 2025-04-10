@@ -31,6 +31,7 @@ private:
 		XMMATRIX world;
 		XMMATRIX view;
 		XMMATRIX projection;
+		int shaderType;
 	};
 
 public:
@@ -41,6 +42,8 @@ public:
 	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 	bool Render(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX);
+
+	void ChangeShader(int);
 
 private:
 	bool InitializeShader(ID3D11Device*, HWND, const WCHAR*);
@@ -55,6 +58,7 @@ private:
 	ID3D11PixelShader* m_pixelShader;
 	ID3D11InputLayout* m_layout;
 	ID3D11Buffer* m_matrixBuffer;
+	int m_shaderType;
 };
 
 #endif

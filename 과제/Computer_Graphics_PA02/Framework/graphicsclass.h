@@ -38,9 +38,12 @@ public:
 	bool Initialize(int, int, HWND);
 	void Shutdown();
 	bool Frame();
+
+
 	void ChangeCullMode(int);
 	void ChangeFillMode(int);
 	void ChangeBackgroundColor(int);
+	void ChangeShaderType(int);
 
 private:
 	bool Render();
