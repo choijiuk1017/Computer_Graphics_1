@@ -340,6 +340,7 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 
 	// Finanly set the constant buffer in the vertex shader with the updated values.
     deviceContext->VSSetConstantBuffers(bufferNumber, 1, &m_matrixBuffer);
+
 	deviceContext->PSSetConstantBuffers(bufferNumber, 1, &m_matrixBuffer);
 
 	return true;

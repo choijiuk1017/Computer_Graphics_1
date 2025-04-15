@@ -140,7 +140,6 @@ bool SystemClass::Frame()
 		m_Graphics->ChangeBackgroundColor(1);
 	}
 
-
 	if (m_Input->IsKeyDown('G'))
 	{
 		m_Graphics->ChangeBackgroundColor(2);
@@ -162,6 +161,8 @@ bool SystemClass::Frame()
 	{
 		m_Graphics->ChangeFillMode(0);
 	}
+
+
 
 	if (m_Input->IsKeyDown('C'))
 	{

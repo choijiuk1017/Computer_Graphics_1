@@ -361,6 +361,7 @@ bool D3DClass::InitializeRasterizer()
 	rasterDesc.DepthClipEnable = true;
 
 	rasterDesc.FillMode = D3D11_FILL_SOLID;
+
 	rasterDesc.FrontCounterClockwise = false;
 	rasterDesc.MultisampleEnable = false;
 	rasterDesc.ScissorEnable = false;
