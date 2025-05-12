@@ -1,0 +1,16 @@
+﻿  cameraclass.cpp
+  colorshaderclass.cpp
+  d3dclass.cpp
+  DDSTextureLoader.cpp
+  graphicsclass.cpp
+  inputclass.cpp
+  main.cpp
+  modelclass.cpp
+  systemclass.cpp
+  textureClass.cpp
+  textureShaderclass.cpp
+  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+  All 341 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\수업 내용\0415_CGS_CJU\0415_CGS_CJU\Release\Framework.exe
