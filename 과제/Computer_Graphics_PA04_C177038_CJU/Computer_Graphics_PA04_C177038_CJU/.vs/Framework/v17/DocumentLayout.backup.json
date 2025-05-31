@@ -1,0 +1,193 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\inputclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\cameraclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\inputclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\cameraclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\textureshaderclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\textureshaderclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "graphicsclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
+              "RelativeDocumentMoniker": "Framework\\graphicsclass.h",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
+              "RelativeToolTip": "Framework\\graphicsclass.h",
+              "ViewState": "AgIAACEAAAAAAAAAAADgvxQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T16:28:27.113Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "graphicsclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\graphicsclass.cpp",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp",
+              "RelativeToolTip": "Framework\\graphicsclass.cpp",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAAEwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-12T16:26:06.123Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "textureshaderclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\textureshaderclass.h",
+              "RelativeDocumentMoniker": "Framework\\textureshaderclass.h",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\textureshaderclass.h",
+              "RelativeToolTip": "Framework\\textureshaderclass.h",
+              "ViewState": "AgIAACgAAAAAAAAAAADwvzwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T16:18:19.301Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\main.cpp",
+              "RelativeDocumentMoniker": "Framework\\main.cpp",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\main.cpp",
+              "RelativeToolTip": "Framework\\main.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAMwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-31T11:24:53.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "systemclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\systemclass.cpp",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.cpp",
+              "RelativeToolTip": "Framework\\systemclass.cpp",
+              "ViewState": "AgIAALQAAAAAAAAAAAAcwMQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-12T15:25:59.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "inputclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\inputclass.cpp",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.cpp",
+              "RelativeToolTip": "Framework\\inputclass.cpp",
+              "ViewState": "AgIAADsAAAAAAAAAAAAMwEMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-31T10:05:30.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "cameraclass.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.cpp",
+              "RelativeDocumentMoniker": "Framework\\cameraclass.cpp",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.cpp",
+              "RelativeToolTip": "Framework\\cameraclass.cpp",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAUwHMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-12T15:25:11.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "systemclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.h",
+              "RelativeDocumentMoniker": "Framework\\systemclass.h",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.h",
+              "RelativeToolTip": "Framework\\systemclass.h",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-31T10:10:12.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "inputclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.h",
+              "RelativeDocumentMoniker": "Framework\\inputclass.h",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\inputclass.h",
+              "RelativeToolTip": "Framework\\inputclass.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-31T10:06:39.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "cameraclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.h",
+              "RelativeDocumentMoniker": "Framework\\cameraclass.h",
+              "ToolTip": "C:\\Users\\user\\Desktop\\CG\\Computer_Graphics_1\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\cameraclass.h",
+              "RelativeToolTip": "Framework\\cameraclass.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-31T09:55:12.144Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
