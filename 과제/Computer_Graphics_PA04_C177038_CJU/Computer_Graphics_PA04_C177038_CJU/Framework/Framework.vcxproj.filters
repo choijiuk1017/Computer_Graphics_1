@@ -75,34 +75,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="data\seafloor.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="data\chair_d.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="data\Sword.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="data\Ground.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="data\Hammer.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="data\Shield.dds">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\..\..\Downloads\a.gif">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\..\..\..\..\..\..\Downloads\f38lf5qacxs0-mountain\mountain\ground_grass_3264_4062_Small.jpg">
-      <Filter>리소스 파일</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="data\textureShader.hlsl">
       <Filter>리소스 파일</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\Tank2Head.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

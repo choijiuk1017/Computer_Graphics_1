@@ -57,11 +57,12 @@ void InputClass::KeyUp(unsigned int input)
 bool InputClass::IsKeyDown(unsigned int key)
 {
 	// Return what state the key is in (pressed/not pressed).
-	return m_keys[key];
+	return (GetAsyncKeyState(key) & 0x8000) != 0;
 }
 
 void InputClass::MouseMove(int x, int y)
 {
+
 	m_deltaX = x - m_prevMouseX;
 	m_deltaY = y - m_prevMouseY;
 

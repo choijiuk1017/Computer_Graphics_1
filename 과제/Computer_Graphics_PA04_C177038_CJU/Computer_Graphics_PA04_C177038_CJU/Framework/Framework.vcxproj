@@ -165,17 +165,10 @@
     <ClInclude Include="textureshaderclass.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\..\..\..\Downloads\a.gif" />
-    <Image Include="..\..\..\..\..\..\..\Downloads\f38lf5qacxs0-mountain\mountain\ground_grass_3264_4062_Small.jpg" />
-    <Image Include="data\chair_d.dds" />
-    <Image Include="data\Ground.dds" />
-    <Image Include="data\Hammer.dds" />
-    <Image Include="data\seafloor.dds" />
-    <Image Include="data\Shield.dds" />
-    <Image Include="data\Sword.dds" />
+    <None Include="data\textureShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="data\textureShader.hlsl" />
+    <Image Include="..\..\..\..\..\..\Tank2Head.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

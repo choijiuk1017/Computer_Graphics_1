@@ -53,7 +53,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);	// for cube model
 //	m_Camera->SetPosition(0.0f, 0.5f, -3.0f);	// for chair model
 	
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		ModelClass* model = new ModelClass;
 
@@ -65,7 +65,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-	result = m_Models[0]->Initialize(m_D3D->GetDevice(), L"./data/Sword.obj", L"./data/Sword.dds");
+	result = m_Models[0]->Initialize(m_D3D->GetDevice(), L"./data/Old House.obj", L"./data/Old House.dds");
 	if(!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -76,7 +76,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-	result = m_Models[1]->Initialize(m_D3D->GetDevice(), L"./data/Shield.obj", L"./data/Shield.dds");
+	result = m_Models[1]->Initialize(m_D3D->GetDevice(), L"./data/ground.obj", L"./data/Ground.dds");
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -87,7 +87,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-	result = m_Models[2]->Initialize(m_D3D->GetDevice(), L"./data/Hammer.obj", L"./data/Hammer.dds");
+	result = m_Models[2]->Initialize(m_D3D->GetDevice(), L"./data/tank 1.obj", L"./data/Tank 1.dds");
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -99,9 +99,18 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-	// Initialize the model object.
-	result = m_Models[3]->Initialize2DPlane(m_D3D->GetDevice(), L"./data/a.dds");
-	// result = m_Model->Initialize(m_D3D->GetDevice(), L"./data/chair.obj", L"./data/chair_d.dds");
+	result = m_Models[3]->Initialize(m_D3D->GetDevice(), L"./data/TANK 2 BODY.obj", L"./data/Tank2Body.dds");
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
+		return false;
+	}
+
+	if (!m_Models[4])
+	{
+		return false;
+	}
+	result = m_Models[4]->Initialize(m_D3D->GetDevice(), L"./data/TANK 2 HEAD.obj", L"./data/Tank2Head.dds");
 	if (!result)
 	{
 		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -208,7 +217,7 @@ bool GraphicsClass::Render(float rotation)
 
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		XMMATRIX worldMatrix = m_Models[i]->GetWorldMatrix();
 		m_D3D->GetWorldMatrix(worldMatrix);
@@ -219,29 +228,25 @@ bool GraphicsClass::Render(float rotation)
 		switch (i)
 		{
 		case 0:
-			worldMatrix *= XMMatrixScaling(0.01f, 0.01f, 0.01f);
-			worldMatrix *= XMMatrixRotationY(rotation);
-			worldMatrix *= XMMatrixTranslation(-1.5f, 0.0f, 0.0f);
+			worldMatrix = XMMatrixScaling(0.02f, 0.02f, 0.02f) * XMMatrixRotationY(XM_PI / 2) * XMMatrixTranslation(80.0f, -17.0f, 0.0f);
+			
 		
 			break;
 
 		case 1:
-			worldMatrix *= XMMatrixScaling(0.01f, 0.01f, 0.01f);
-			worldMatrix *= XMMatrixRotationY(rotation);
-			worldMatrix *= XMMatrixTranslation(-1.5f, -1.0f, 0.0f);
+			worldMatrix *= XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixTranslation(0.0f, -30.0f, 0.0f);
+
 			break;
 
 		case 2:
-			worldMatrix *= XMMatrixScaling(0.01f, 0.01f, 0.01f);
-			worldMatrix *= XMMatrixRotationY(rotation);
-			worldMatrix *= XMMatrixTranslation(1.5f, 0.0f, 0.0f);
+			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(-XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(-50.0f, -28.0f, 0.0f);
 			break;
 
 		case 3:
-			worldMatrix *= XMMatrixScaling(100.0f, 800.0f, 1.0f);
-			worldMatrix *= XMMatrixRotationX(XM_PI / 2.5);
-			worldMatrix *= XMMatrixTranslation(0.0f, -10.0f, 120.0f);
-
+			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(-XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(0.0f, -10.0f, 0.0f);
+			break;
+		case 4:
+			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(1.0f, -10.0f, 0.0f);
 			break;
 		}
 
