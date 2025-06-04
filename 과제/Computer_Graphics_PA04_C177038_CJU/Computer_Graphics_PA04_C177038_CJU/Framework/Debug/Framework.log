@@ -1,0 +1,5 @@
+﻿  graphicsclass.cpp
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(58,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(271,82): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(227,11): warning C4101: 'worldMatrix' :참조되지 않은 지역 변수입니다.
+data\10595_Military_Action_Figure_SG_v2_L3.obj : fatal error LNK1136: 파일이 잘못되었거나 손상되었습니다.

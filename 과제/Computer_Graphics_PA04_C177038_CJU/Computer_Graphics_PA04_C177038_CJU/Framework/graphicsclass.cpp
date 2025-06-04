@@ -26,6 +26,30 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
+	std::wstring objPaths[8] = {
+	L"./data/Old House.obj",
+	L"./data/ground.obj",
+	L"./data/tank 1.obj",
+	L"./data/TANK 2 BODY.obj",
+	L"./data/TANK 2 HEAD.obj",
+	L"./data/abandonhouse.obj",
+	L"./data/man.obj",
+	L"./data/bombardino.obj"
+	};
+
+	std::wstring texPaths[8] = {
+		L"./data/Old House.dds",
+		L"./data/Ground.dds",
+		L"./data/Tank 1.dds",
+		L"./data/Tank2Body.dds",
+		L"./data/Tank2Head.dds",
+		L"./data/AbHouse_Base_Color.dds",
+		L"./data/10595_Military_Action_Figure_SG_v1_diffuse.dds",
+		L"./data/bombardino.dds"
+	};
+
+	int instanceCount[8] = {1, 1, 1, 1, 1, 1, 10, 1};
+
 
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -50,71 +74,19 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	// Set the initial position of the camera.
-	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);	// for cube model
-//	m_Camera->SetPosition(0.0f, 0.5f, -3.0f);	// for chair model
+	m_Camera->SetPosition(0.0f, 10.0f, -5.0f);
 	
-	for (int i = 0; i < 6; i++)
-	{
+	for (int i = 0; i < 8; i++) {
 		ModelClass* model = new ModelClass;
+		if (!model) return false;
 
+		bool result = model->Initialize(m_D3D->GetDevice(), objPaths[i].c_str(), texPaths[i].c_str(), instanceCount[i]);
+		if (!result) {
+			MessageBox(hwnd, L"Could not initialize model object.", L"Error", MB_OK);
+			delete model;
+			return false;
+		}
 		m_Models.push_back(model);
-	}
-
-	//검 모양
-	if(!m_Models[0])
-	{
-		return false;
-	}
-	result = m_Models[0]->Initialize(m_D3D->GetDevice(), L"./data/Old House.obj", L"./data/Old House.dds");
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
-	}
-
-	if (!m_Models[1])
-	{
-		return false;
-	}
-	result = m_Models[1]->Initialize(m_D3D->GetDevice(), L"./data/ground.obj", L"./data/Ground.dds");
-	if (!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
-	}
-
-	if (!m_Models[2])
-	{
-		return false;
-	}
-	result = m_Models[2]->Initialize(m_D3D->GetDevice(), L"./data/tank 1.obj", L"./data/Tank 1.dds");
-	if (!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
-	}
-
-
-	if (!m_Models[3])
-	{
-		return false;
-	}
-	result = m_Models[3]->Initialize(m_D3D->GetDevice(), L"./data/TANK 2 BODY.obj", L"./data/Tank2Body.dds");
-	if (!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
-	}
-
-	if (!m_Models[4])
-	{
-		return false;
-	}
-	result = m_Models[4]->Initialize(m_D3D->GetDevice(), L"./data/TANK 2 HEAD.obj", L"./data/Tank2Head.dds");
-	if (!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
 	}
 
 	// Create the texture shader object.
@@ -217,10 +189,9 @@ bool GraphicsClass::Render(float rotation)
 
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 8; i++)
 	{
 		XMMATRIX worldMatrix = m_Models[i]->GetWorldMatrix();
-		m_D3D->GetWorldMatrix(worldMatrix);
 
 		m_Models[i]->Render(m_D3D->GetDeviceContext());
 
@@ -228,29 +199,64 @@ bool GraphicsClass::Render(float rotation)
 		switch (i)
 		{
 		case 0:
-			worldMatrix = XMMatrixScaling(0.02f, 0.02f, 0.02f) * XMMatrixRotationY(XM_PI / 2) * XMMatrixTranslation(80.0f, -17.0f, 0.0f);
-			
-		
+			// 오래된 건물
+			worldMatrix = XMMatrixScaling(0.03f, 0.03f, 0.03f) 
+				* XMMatrixRotationY(-XM_PI / 2) 
+				* XMMatrixTranslation(-90.0f, -14.0f, 60.0f);
 			break;
 
 		case 1:
-			worldMatrix *= XMMatrixScaling(0.3f, 0.3f, 0.3f) * XMMatrixTranslation(0.0f, -30.0f, 0.0f);
+			// 바닥 지형
+			worldMatrix = XMMatrixScaling(0.3f, 0.3f, 0.3f) 
+				* XMMatrixTranslation(0.0f, -30.0f, 0.0f);
 
 			break;
 
 		case 2:
-			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(-XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(-50.0f, -28.0f, 0.0f);
+			// 탱크 1
+			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
+				* XMMatrixRotationY(-XM_PI / 2) 
+				* XMMatrixRotationZ(XM_PI / 12) 
+				* XMMatrixTranslation(-50.0f, -28.0f, 0.0f);
 			break;
 
 		case 3:
-			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(-XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(0.0f, -10.0f, 0.0f);
+			// 탱크 2 몸체
+			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
+				* XMMatrixRotationY(-XM_PI / 3) 
+				* XMMatrixRotationZ(XM_PI / 6) 
+				* XMMatrixTranslation(0.0f, -10.5f, 0.0f);
 			break;
 		case 4:
-			worldMatrix *= XMMatrixScaling(0.1f, 0.1f, 0.1f) * XMMatrixRotationY(XM_PI / 3) * XMMatrixRotationZ(XM_PI / 12) * XMMatrixTranslation(1.0f, -10.0f, 0.0f);
+			// 탱크 2 머리
+			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
+				* XMMatrixRotationY(rotation * 0.08) 
+				* XMMatrixRotationZ(XM_PI / 6) 
+				* XMMatrixTranslation(1.0f, -9.5f, -1.0f);
 			break;
-		}
+		case 5:
+			// 부서진 집
+			worldMatrix = XMMatrixScaling(0.03f, 0.03f, 0.03f)
+				* XMMatrixRotationY(XM_PI / 2) 
+				* XMMatrixTranslation(-30.0f, -30.0f, 100.0f);
+			break;
+		case 6:
+			// 사람
+			worldMatrix = XMMatrixScaling(0.14f, 0.14f, 0.14f) 
+				* XMMatrixRotationY(-XM_PI / 2) 
+				* XMMatrixTranslation(-80.0f, -25.0f, 50.0f);
+			break;
+		case 7:
+			// 전투기
+			worldMatrix =  XMMatrixScaling(0.1f, 0.1f, 0.1f) 
+				* XMMatrixRotationZ(XM_PI / 6)  
+				* XMMatrixTranslation(70.0f, 0.0f, 0.0f) 
+				* XMMatrixRotationY(rotation * 0.5f) 
+				* XMMatrixTranslation(0.0f, 50.0f, 0.0f);
+			break;
 
-		result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(),
+		}
+		result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(), m_Models[i]->GetInstanceCount(),
 			worldMatrix, viewMatrix, projectionMatrix, m_Models[i]->GetTexture());
 
 		if (!result) return false;

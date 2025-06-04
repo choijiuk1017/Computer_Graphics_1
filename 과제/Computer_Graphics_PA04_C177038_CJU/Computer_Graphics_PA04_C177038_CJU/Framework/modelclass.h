@@ -48,12 +48,17 @@ private:
 		float nx, ny, nz;
 	};
 
+	struct InstanceType
+	{
+		XMFLOAT3 position;
+	};
+
 public:
 	ModelClass();
 	ModelClass(const ModelClass&);
 	~ModelClass();
 
-	bool Initialize(ID3D11Device*, const WCHAR*, const WCHAR*);
+	bool Initialize(ID3D11Device*, const WCHAR*, const WCHAR*, int);
 	void Shutdown();
 	void Render(ID3D11DeviceContext*);
 
@@ -69,6 +74,8 @@ public:
 	bool Initialize2DPlane(ID3D11Device*, const WCHAR*);
 
 	XMMATRIX GetWorldMatrix() const;
+
+	int GetInstanceCount();
 
 private:
 	bool InitializeBuffers(ID3D11Device*);
@@ -87,6 +94,9 @@ private:
 	XMMATRIX m_worldMatrix;
 
 	ModelType* m_model;
+
+	ID3D11Buffer* m_instanceBuffer = nullptr;
+	int m_instanceCount = 0;
 };
 
 #endif
