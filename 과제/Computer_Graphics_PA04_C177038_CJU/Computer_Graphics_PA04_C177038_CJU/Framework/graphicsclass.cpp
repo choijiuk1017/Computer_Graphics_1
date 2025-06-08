@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////////////////////////
 // Filename: graphicsclass.cpp
 ////////////////////////////////////////////////////////////////////////////////
 #include "graphicsclass.h"
@@ -9,6 +9,8 @@ GraphicsClass::GraphicsClass()
 	m_D3D = 0;
 	m_Camera = 0;
 	m_TextureShader = 0;
+
+	m_Bitmap = 0;
 }
 
 
@@ -26,18 +28,21 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
-	std::wstring objPaths[8] = {
-	L"./data/Old House.obj",
-	L"./data/ground.obj",
-	L"./data/tank 1.obj",
-	L"./data/TANK 2 BODY.obj",
-	L"./data/TANK 2 HEAD.obj",
-	L"./data/abandonhouse.obj",
-	L"./data/man.obj",
-	L"./data/bombardino.obj"
+	std::wstring objPaths[11] = {
+		L"./data/Old House.obj",
+		L"./data/ground.obj",
+		L"./data/tank 1.obj",
+		L"./data/TANK 2 BODY.obj",
+		L"./data/TANK 2 HEAD.obj",
+		L"./data/abandonhouse.obj",
+		L"./data/man.obj",
+		L"./data/bombardino.obj",
+		L"./data/Old House.obj",
+		L"./data/truck_Launcher.obj",
+		L"./data/truck_body.obj"
 	};
 
-	std::wstring texPaths[8] = {
+	std::wstring texPaths[11] = {
 		L"./data/Old House.dds",
 		L"./data/Ground.dds",
 		L"./data/Tank 1.dds",
@@ -45,10 +50,13 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		L"./data/Tank2Head.dds",
 		L"./data/AbHouse_Base_Color.dds",
 		L"./data/10595_Military_Action_Figure_SG_v1_diffuse.dds",
-		L"./data/bombardino.dds"
+		L"./data/bombardino.dds",
+		L"./data/Old House.dds",
+		L"./data/truck_Launcher.dds",
+		L"./data/truck_body.dds"
 	};
 
-	int instanceCount[8] = {1, 1, 1, 1, 1, 1, 10, 1};
+	int instanceCount[11] = {1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1};
 
 
 	// Create the Direct3D object.
@@ -76,7 +84,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	// Set the initial position of the camera.
 	m_Camera->SetPosition(0.0f, 10.0f, -5.0f);
 	
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 11; i++) {
 		ModelClass* model = new ModelClass;
 		if (!model) return false;
 
@@ -103,6 +111,28 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		MessageBox(hwnd, L"Could not initialize the texture shader object.", L"Error", MB_OK);
 		return false;
 	}
+
+	m_Bitmap = new BitmapClass;
+	if (!m_Bitmap)
+	{
+		return false;
+	}
+
+	// Initialize the bitmap object.
+	result = m_Bitmap->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"./data/Sky.dds", 800, 800);
+	if (!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the bitmap object.", L"Error", MB_OK);
+		return false;
+	}
+
+	m_BillboardModel = new ModelClass;
+	if (!m_BillboardModel)
+	{
+		return false;
+	}
+
+	m_BillboardModel->Initialize(m_D3D->GetDevice(), L"./data/Flame.obj", L"./data/Flame.dds", 1);
 
 	return true;
 }
@@ -143,6 +173,20 @@ void GraphicsClass::Shutdown()
 		m_D3D = 0;
 	}
 
+	if (m_Bitmap)
+	{
+		m_Bitmap->Shutdown();
+		delete m_Bitmap;
+		m_Bitmap = 0;
+	}
+
+	if (m_BillboardModel)
+	{
+		m_BillboardModel->Shutdown();
+		delete m_BillboardModel;
+		m_BillboardModel = 0;
+	}
+
 	return;
 }
 
@@ -174,7 +218,7 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render(float rotation)
 {
-	XMMATRIX worldMatrix, viewMatrix, projectionMatrix;
+	XMMATRIX worldMatrix, viewMatrix, projectionMatrix, orthoMatrix, translateMatrix;
 	bool result;
 
 
@@ -187,9 +231,32 @@ bool GraphicsClass::Render(float rotation)
 	// Get the world, view, and projection matrices from the camera and d3d objects.
 	m_Camera->GetViewMatrix(viewMatrix);
 
+	m_D3D->GetWorldMatrix(worldMatrix);
+
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	for (int i = 0; i < 8; i++)
+	m_D3D->GetOrthoMatrix(orthoMatrix);
+
+	XMMATRIX identity = XMMatrixIdentity();
+
+	// Turn off the Z buffer to begin all 2D rendering.
+	//m_D3D->TurnZBufferOff();
+	m_D3D->TurnZBufferOn();
+	result = m_Bitmap->Render(m_D3D->GetDeviceContext(), 0, 0);
+	if (!result)
+	{
+		return false;
+	}
+	result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Bitmap->GetIndexCount(),  1, worldMatrix, identity, orthoMatrix, m_Bitmap->GetTexture());
+	if (!result)
+	{
+		return false;
+	}
+
+	// Turn the Z buffer back on now that all 2D rendering has completed.
+	//m_D3D->TurnZBufferOn();
+
+	for (int i = 0; i < 11; i++)
 	{
 		XMMATRIX worldMatrix = m_Models[i]->GetWorldMatrix();
 
@@ -199,21 +266,21 @@ bool GraphicsClass::Render(float rotation)
 		switch (i)
 		{
 		case 0:
-			// ¿À·¡µÈ °Ç¹°
+			// ì˜¤ëž˜ëœ ê±´ë¬¼
 			worldMatrix = XMMatrixScaling(0.03f, 0.03f, 0.03f) 
 				* XMMatrixRotationY(-XM_PI / 2) 
 				* XMMatrixTranslation(-90.0f, -14.0f, 60.0f);
 			break;
 
 		case 1:
-			// ¹Ù´Ú ÁöÇü
+			// ë°”ë‹¥ ì§€í˜•
 			worldMatrix = XMMatrixScaling(0.3f, 0.3f, 0.3f) 
 				* XMMatrixTranslation(0.0f, -30.0f, 0.0f);
 
 			break;
 
 		case 2:
-			// ÅÊÅ© 1
+			// íƒ±í¬ 1
 			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
 				* XMMatrixRotationY(-XM_PI / 2) 
 				* XMMatrixRotationZ(XM_PI / 12) 
@@ -221,45 +288,93 @@ bool GraphicsClass::Render(float rotation)
 			break;
 
 		case 3:
-			// ÅÊÅ© 2 ¸öÃ¼
+			// íƒ±í¬ 2 ëª¸ì²´
 			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
 				* XMMatrixRotationY(-XM_PI / 3) 
 				* XMMatrixRotationZ(XM_PI / 6) 
 				* XMMatrixTranslation(0.0f, -10.5f, 0.0f);
 			break;
 		case 4:
-			// ÅÊÅ© 2 ¸Ó¸®
+			// íƒ±í¬ 2 ë¨¸ë¦¬
 			worldMatrix = XMMatrixScaling(0.2f, 0.2f, 0.2f) 
 				* XMMatrixRotationY(rotation * 0.08) 
 				* XMMatrixRotationZ(XM_PI / 6) 
 				* XMMatrixTranslation(1.0f, -9.5f, -1.0f);
 			break;
 		case 5:
-			// ºÎ¼­Áø Áý
+			// ë¶€ì„œì§„ ì§‘
 			worldMatrix = XMMatrixScaling(0.03f, 0.03f, 0.03f)
 				* XMMatrixRotationY(XM_PI / 2) 
 				* XMMatrixTranslation(-30.0f, -30.0f, 100.0f);
 			break;
 		case 6:
-			// »ç¶÷
+			// ì‚¬ëžŒ
 			worldMatrix = XMMatrixScaling(0.14f, 0.14f, 0.14f) 
 				* XMMatrixRotationY(-XM_PI / 2) 
 				* XMMatrixTranslation(-80.0f, -25.0f, 50.0f);
 			break;
 		case 7:
-			// ÀüÅõ±â
+			// ì „íˆ¬ê¸°
 			worldMatrix =  XMMatrixScaling(0.1f, 0.1f, 0.1f) 
 				* XMMatrixRotationZ(XM_PI / 6)  
 				* XMMatrixTranslation(70.0f, 0.0f, 0.0f) 
 				* XMMatrixRotationY(rotation * 0.5f) 
 				* XMMatrixTranslation(0.0f, 50.0f, 0.0f);
 			break;
-
+		case 8:
+			// ì˜¤ëž˜ëœ ê±´ë¬¼
+			worldMatrix = XMMatrixScaling(0.03f, 0.03f, 0.03f)
+				* XMMatrixRotationY(-XM_PI / 2)
+				* XMMatrixTranslation(-90.0f, -14.0f, -30.0f);
+			break;
+		case 9:
+			//íŠ¸ëŸ­ ëŸ°ì²˜
+			worldMatrix = XMMatrixScaling(0.1f, 0.1f, 0.1f)
+				* XMMatrixRotationY(rotation * 0.08)
+				* XMMatrixTranslation(89.0f, -26.0f, -12.0f);
+			break;
+		case 10:
+			worldMatrix = XMMatrixScaling(0.1f, 0.1f, 0.1f)
+				* XMMatrixTranslation(90.0f, -26.0f, -30.0f);
+			break;
 		}
 		result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(), m_Models[i]->GetInstanceCount(),
 			worldMatrix, viewMatrix, projectionMatrix, m_Models[i]->GetTexture());
 
 		if (!result) return false;
+	}
+
+	XMFLOAT3 cameraPosition, modelPosition;
+	// ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ì–»ëŠ”ë‹¤.
+	cameraPosition = m_Camera->GetPosition();
+
+	// ë¹Œë³´ë“œ ëª¨ë¸ì˜ ìœ„ì¹˜ë¥¼ â€‹â€‹ì„¤ì •í•©ë‹ˆë‹¤.
+	modelPosition.x = -2.0f;
+	modelPosition.y = -1.5f;
+	modelPosition.z = 1.0f;
+
+	double angle = atan2(modelPosition.x - cameraPosition.x, modelPosition.z - cameraPosition.z) * (180.0 / XM_PI);
+
+
+	float Brotation = (float)angle * 0.0174532925f;
+
+	
+	worldMatrix = XMMatrixScaling(0.05f, 0.05f, 0.05f) * XMMatrixRotationY(Brotation);
+
+
+	translateMatrix = XMMatrixTranslation(modelPosition.x, modelPosition.y, modelPosition.z);
+
+
+	worldMatrix = XMMatrixMultiply(worldMatrix, translateMatrix);
+
+
+
+	m_BillboardModel->Render(m_D3D->GetDeviceContext());
+	 
+	if (!m_TextureShader->Render(m_D3D->GetDeviceContext(), m_BillboardModel->GetIndexCount(), 1, worldMatrix, viewMatrix, projectionMatrix,
+		m_BillboardModel->GetTexture()))
+	{
+		return false;
 	}
 
 

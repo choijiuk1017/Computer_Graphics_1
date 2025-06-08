@@ -71,7 +71,7 @@ public:
 	bool ReadFileCounts(const WCHAR*);
 	bool LoadDataStructures(const WCHAR*, int, int, int, int);
 
-	bool Initialize2DPlane(ID3D11Device*, const WCHAR*);
+	bool Initialize2DPlane_Cross(ID3D11Device*, const WCHAR*, float, float);
 
 	XMMATRIX GetWorldMatrix() const;
 

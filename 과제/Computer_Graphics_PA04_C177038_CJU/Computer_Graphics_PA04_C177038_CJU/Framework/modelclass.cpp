@@ -224,7 +224,7 @@ int ModelClass::GetInstanceCount()
 }
 
 
-bool ModelClass::Initialize2DPlane(ID3D11Device* device, const WCHAR* textureFilename)
+bool ModelClass::Initialize2DPlane_Cross(ID3D11Device* device, const WCHAR* textureFilename, float width = 2.0f, float height = 4.0f)
 {
 	VertexType* vertices;
 	unsigned long* indices;
@@ -232,48 +232,49 @@ bool ModelClass::Initialize2DPlane(ID3D11Device* device, const WCHAR* textureFil
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 
-	m_vertexCount = 4;
-	m_indexCount = 6;
+	// 두 평면 (quad) → 총 정점 4 * 2 = 8개, 인덱스 6 * 2 = 12개
+	m_vertexCount = 8;
+	m_indexCount = 12;
 
 	vertices = new VertexType[m_vertexCount];
 	indices = new unsigned long[m_indexCount];
 
-	// 정점 설정 (X, Y, Z), (U, V), (NX, NY, NZ)
-	vertices[0] = { XMFLOAT3(-1.0f, 1.0f, 0.0f), XMFLOAT2(0.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f) };
-	vertices[1] = { XMFLOAT3(1.0f, 1.0f, 0.0f),  XMFLOAT2(1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f) };
-	vertices[2] = { XMFLOAT3(1.0f, -1.0f, 0.0f), XMFLOAT2(1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f) };
-	vertices[3] = { XMFLOAT3(-1.0f, -1.0f, 0.0f),XMFLOAT2(0.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f) };
+	float halfWidth = width * 0.5f;
+	float halfHeight = height * 0.5f;
 
-	// 삼각형 2개로 구성된 정사각형
-	indices[0] = 0; indices[1] = 1; indices[2] = 2;
-	indices[3] = 0; indices[4] = 2; indices[5] = 3;
+	// ----- 첫 번째 평면: XY 평면, Z=0 (정면 기준) -----
+	vertices[0] = { XMFLOAT3(-halfWidth, halfHeight, 0.0f),  XMFLOAT2(0.0f, 0.0f), XMFLOAT3(0, 0, -1) };
+	vertices[1] = { XMFLOAT3(halfWidth,  halfHeight, 0.0f),  XMFLOAT2(1.0f, 0.0f), XMFLOAT3(0, 0, -1) };
+	vertices[2] = { XMFLOAT3(halfWidth, -halfHeight, 0.0f),  XMFLOAT2(1.0f, 1.0f), XMFLOAT3(0, 0, -1) };
+	vertices[3] = { XMFLOAT3(-halfWidth, -halfHeight, 0.0f), XMFLOAT2(0.0f, 1.0f), XMFLOAT3(0, 0, -1) };
 
-	// 정점 버퍼 생성
+	// ----- 두 번째 평면: YZ 평면, X=0 (측면 기준) -----
+	vertices[4] = { XMFLOAT3(0.0f, halfHeight, -halfWidth),  XMFLOAT2(0.0f, 0.0f), XMFLOAT3(-1, 0, 0) };
+	vertices[5] = { XMFLOAT3(0.0f, halfHeight, halfWidth),   XMFLOAT2(1.0f, 0.0f), XMFLOAT3(-1, 0, 0) };
+	vertices[6] = { XMFLOAT3(0.0f, -halfHeight, halfWidth),  XMFLOAT2(1.0f, 1.0f), XMFLOAT3(-1, 0, 0) };
+	vertices[7] = { XMFLOAT3(0.0f, -halfHeight, -halfWidth), XMFLOAT2(0.0f, 1.0f), XMFLOAT3(-1, 0, 0) };
+
+	// 인덱스 설정
+	for (int i = 0; i < 6; ++i) indices[i] = i;
+	for (int i = 0; i < 6; ++i) indices[i + 6] = i + 4;
+
+	// 버퍼 생성
+	vertexBufferDesc = {};
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * m_vertexCount;
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vertexBufferDesc.CPUAccessFlags = 0;
-	vertexBufferDesc.MiscFlags = 0;
-	vertexBufferDesc.StructureByteStride = 0;
 
 	vertexData.pSysMem = vertices;
-	vertexData.SysMemPitch = 0;
-	vertexData.SysMemSlicePitch = 0;
 
 	result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
 	if (FAILED(result)) return false;
 
-	// 인덱스 버퍼 생성
+	indexBufferDesc = {};
 	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	indexBufferDesc.ByteWidth = sizeof(unsigned long) * m_indexCount;
 	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-	indexBufferDesc.CPUAccessFlags = 0;
-	indexBufferDesc.MiscFlags = 0;
-	indexBufferDesc.StructureByteStride = 0;
 
 	indexData.pSysMem = indices;
-	indexData.SysMemPitch = 0;
-	indexData.SysMemSlicePitch = 0;
 
 	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
 	if (FAILED(result)) return false;
@@ -282,10 +283,7 @@ bool ModelClass::Initialize2DPlane(ID3D11Device* device, const WCHAR* textureFil
 	delete[] indices;
 
 	result = LoadTexture(device, textureFilename);
-	if (!result)
-	{
-		return false;
-	}
+	if (!result) return false;
 
 	return true;
 }

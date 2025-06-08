@@ -12,6 +12,7 @@
 #include "cameraclass.h"
 #include "modelclass.h"
 #include "textureshaderclass.h"
+#include "bitmapclass.h"
 #include <Vector>
 
 
@@ -52,7 +53,9 @@ private:
 	D3DClass* m_D3D;
 	CameraClass* m_Camera;
 	std::vector<ModelClass*> m_Models;
+	ModelClass* m_BillboardModel = nullptr;
 	TextureShaderClass* m_TextureShader;
+	BitmapClass* m_Bitmap;
 };
 
 #endif
