@@ -23,6 +23,9 @@
 ///////////////////////
 #include "inputclass.h"
 #include "graphicsclass.h"
+#include "fpsclass.h"
+#include "cpuclass.h"
+#include "timerclass.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +59,13 @@ private:
 
 	LARGE_INTEGER m_frequency;
 	LARGE_INTEGER m_lastTime;
+
+	FpsClass* m_Fps;
+	CpuClass* m_Cpu;
+	TimerClass* m_Timer;
+
+
+	bool prevKeyDown = false;
 };
 
 

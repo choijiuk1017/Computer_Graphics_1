@@ -44,6 +44,24 @@
     <ClCompile Include="bitmapclass.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="timerclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fpsclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cpuclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="textclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fontclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fontshaderclass.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3dclass.h">
@@ -79,10 +97,36 @@
     <ClInclude Include="bitmapclass.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="timerclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fpsclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="cpuclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="textclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fontclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="fontshaderclass.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\textureShader.hlsl">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="data\fontShader.hlsl">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\font.dds">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -13,13 +13,14 @@
 #include "modelclass.h"
 #include "textureshaderclass.h"
 #include "bitmapclass.h"
+#include "textclass.h"
 #include <Vector>
 
 
 /////////////
 // GLOBALS //
 /////////////
-const bool FULL_SCREEN = false;
+const bool FULL_SCREEN = true;
 const bool VSYNC_ENABLED = true;
 const float SCREEN_DEPTH = 1000.0f;
 const float SCREEN_NEAR = 0.1f;
@@ -37,14 +38,14 @@ public:
 
 	bool Initialize(int, int, HWND);
 	void Shutdown();
-	bool Frame();
-
-	void ChangeFilterType(int);
+	bool Frame(int, int);
 
 	CameraClass* GetCamera()
 	{
 		return m_Camera;
 	}
+
+	bool m_ShowTitle = true;
 
 private:
 	bool Render(float);
@@ -56,6 +57,8 @@ private:
 	ModelClass* m_BillboardModel = nullptr;
 	TextureShaderClass* m_TextureShader;
 	BitmapClass* m_Bitmap;
+	BitmapClass* m_Title;
+	std::vector<TextClass*> m_Texts;
 };
 
 #endif

@@ -22,11 +22,12 @@ BitmapClass::~BitmapClass()
 }
 
 
-bool BitmapClass::Initialize(ID3D11Device* device, int screenWidth, int screenHeight, const WCHAR* textureFilename, int bitmapWidth, int bitmapHeight)
+bool BitmapClass::Initialize(ID3D11Device* device, int screenWidth, int screenHeight, const WCHAR* textureFilename, int bitmapWidth, int bitmapHeight, XMMATRIX bitMapMatrix)
 {
 	bool result;
 
-
+	worldMatrix = bitMapMatrix;
+	
 	// Store the screen size.
 	m_screenWidth = screenWidth;
 	m_screenHeight = screenHeight;
@@ -352,4 +353,9 @@ void BitmapClass::ReleaseTexture()
 	}
 
 	return;
+}
+
+XMMATRIX BitmapClass::GetWorldMatrix() const
+{
+	return worldMatrix;
 }

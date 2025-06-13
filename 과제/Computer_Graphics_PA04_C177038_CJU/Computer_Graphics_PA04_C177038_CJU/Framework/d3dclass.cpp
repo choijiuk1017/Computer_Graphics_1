@@ -500,3 +500,39 @@ void D3DClass::TurnZBufferOff()
 	m_deviceContext->OMSetDepthStencilState(m_depthDisabledStencilState, 1);
 	return;
 }
+
+
+void D3DClass::TurnOnAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn on the alpha blending.
+	m_deviceContext->OMSetBlendState(m_alphaEnableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}
+
+
+void D3DClass::TurnOffAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn off the alpha blending.
+	m_deviceContext->OMSetBlendState(m_alphaDisableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}

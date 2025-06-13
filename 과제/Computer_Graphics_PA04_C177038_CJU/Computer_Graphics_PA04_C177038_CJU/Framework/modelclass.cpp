@@ -232,7 +232,6 @@ bool ModelClass::Initialize2DPlane_Cross(ID3D11Device* device, const WCHAR* text
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
 
-	// 두 평면 (quad) → 총 정점 4 * 2 = 8개, 인덱스 6 * 2 = 12개
 	m_vertexCount = 8;
 	m_indexCount = 12;
 
@@ -242,13 +241,12 @@ bool ModelClass::Initialize2DPlane_Cross(ID3D11Device* device, const WCHAR* text
 	float halfWidth = width * 0.5f;
 	float halfHeight = height * 0.5f;
 
-	// ----- 첫 번째 평면: XY 평면, Z=0 (정면 기준) -----
+
 	vertices[0] = { XMFLOAT3(-halfWidth, halfHeight, 0.0f),  XMFLOAT2(0.0f, 0.0f), XMFLOAT3(0, 0, -1) };
 	vertices[1] = { XMFLOAT3(halfWidth,  halfHeight, 0.0f),  XMFLOAT2(1.0f, 0.0f), XMFLOAT3(0, 0, -1) };
 	vertices[2] = { XMFLOAT3(halfWidth, -halfHeight, 0.0f),  XMFLOAT2(1.0f, 1.0f), XMFLOAT3(0, 0, -1) };
 	vertices[3] = { XMFLOAT3(-halfWidth, -halfHeight, 0.0f), XMFLOAT2(0.0f, 1.0f), XMFLOAT3(0, 0, -1) };
 
-	// ----- 두 번째 평면: YZ 평면, X=0 (측면 기준) -----
 	vertices[4] = { XMFLOAT3(0.0f, halfHeight, -halfWidth),  XMFLOAT2(0.0f, 0.0f), XMFLOAT3(-1, 0, 0) };
 	vertices[5] = { XMFLOAT3(0.0f, halfHeight, halfWidth),   XMFLOAT2(1.0f, 0.0f), XMFLOAT3(-1, 0, 0) };
 	vertices[6] = { XMFLOAT3(0.0f, -halfHeight, halfWidth),  XMFLOAT2(1.0f, 1.0f), XMFLOAT3(-1, 0, 0) };

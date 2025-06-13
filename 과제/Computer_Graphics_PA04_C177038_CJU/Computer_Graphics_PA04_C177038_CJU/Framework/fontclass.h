@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Filename: bitmapclass.h
+// Filename: fontclass.h
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef _BITMAPCLASS_H_
-#define _BITMAPCLASS_H_
+#ifndef _FONTCLASS_H_
+#define _FONTCLASS_H_
 
 
 //////////////
@@ -10,8 +10,10 @@
 //////////////
 #include <d3d11.h>
 #include <directxmath.h>
+#include <fstream>
 
 using namespace DirectX;
+using namespace std;
 
 
 ///////////////////////
@@ -21,11 +23,17 @@ using namespace DirectX;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Class name: BitmapClass
+// Class name: FontClass
 ////////////////////////////////////////////////////////////////////////////////
-class BitmapClass
+class FontClass
 {
 private:
+	struct FontType
+	{
+		float left, right;
+		int size;
+	};
+
 	struct VertexType
 	{
 		XMFLOAT3 position;
@@ -33,38 +41,26 @@ private:
 	};
 
 public:
-	BitmapClass();
-	BitmapClass(const BitmapClass&);
-	~BitmapClass();
+	FontClass();
+	FontClass(const FontClass&);
+	~FontClass();
 
-	bool Initialize(ID3D11Device*, int, int, const WCHAR*, int, int, XMMATRIX);
+	bool Initialize(ID3D11Device*, const WCHAR*, const WCHAR*);
 	void Shutdown();
-	bool Render(ID3D11DeviceContext*, int, int);
 
-	int GetIndexCount();
 	ID3D11ShaderResourceView* GetTexture();
 
-	XMMATRIX GetWorldMatrix() const;
-
-
+	void BuildVertexArray(void*, const char*, float, float);
 
 private:
-	bool InitializeBuffers(ID3D11Device*);
-	void ShutdownBuffers();
-	bool UpdateBuffers(ID3D11DeviceContext*, int, int);
-	void RenderBuffers(ID3D11DeviceContext*);
-
+	bool LoadFontData(const WCHAR*);
+	void ReleaseFontData();
 	bool LoadTexture(ID3D11Device*, const WCHAR*);
 	void ReleaseTexture();
 
 private:
-	ID3D11Buffer* m_vertexBuffer, * m_indexBuffer;
-	int m_vertexCount, m_indexCount;
+	FontType* m_Font;
 	TextureClass* m_Texture;
-	int m_screenWidth, m_screenHeight;
-	int m_bitmapWidth, m_bitmapHeight;
-	int m_previousPosX, m_previousPosY;
-	XMMATRIX worldMatrix;
 };
 
 #endif
