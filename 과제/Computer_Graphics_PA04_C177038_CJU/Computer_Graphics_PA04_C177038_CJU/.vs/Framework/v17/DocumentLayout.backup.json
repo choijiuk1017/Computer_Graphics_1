@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,33 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "graphicsclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp",
               "RelativeDocumentMoniker": "Framework\\graphicsclass.cpp",
               "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp",
               "RelativeToolTip": "Framework\\graphicsclass.cpp",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAAAOYBAABCAAAAAAAAAA==",
+              "ViewState": "AgIAANMBAAAAAAAAAAAYwPEBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T17:33:11.096Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "graphicsclass.h",
-              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
-              "RelativeDocumentMoniker": "Framework\\graphicsclass.h",
-              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h*",
-              "RelativeToolTip": "Framework\\graphicsclass.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-13T07:08:11.004Z",
               "EditorCaption": ""
             },
             {
@@ -58,6 +45,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "graphicsclass.h",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
+              "RelativeDocumentMoniker": "Framework\\graphicsclass.h",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
+              "RelativeToolTip": "Framework\\graphicsclass.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-13T07:08:11.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "systemclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\systemclass.cpp",
               "RelativeDocumentMoniker": "Framework\\systemclass.cpp",
@@ -65,8 +64,7 @@
               "RelativeToolTip": "Framework\\systemclass.cpp",
               "ViewState": "AgIAAIoAAAAAAAAAAAAAAMQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-13T07:05:18.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T07:05:18.872Z"
             }
           ]
         }

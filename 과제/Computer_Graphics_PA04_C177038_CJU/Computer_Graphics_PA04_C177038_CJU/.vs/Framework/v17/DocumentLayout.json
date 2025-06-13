@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Framework\\graphicsclass.cpp",
               "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.cpp",
               "RelativeToolTip": "Framework\\graphicsclass.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAOYBAABCAAAAAAAAAA==",
+              "ViewState": "AgIAANMBAAAAAAAAAAAYwN8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T17:33:11.096Z",
               "IsPinned": true,
@@ -50,10 +50,9 @@
               "RelativeDocumentMoniker": "Framework\\graphicsclass.h",
               "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA04_C177038_CJU\\Computer_Graphics_PA04_C177038_CJU\\Framework\\graphicsclass.h",
               "RelativeToolTip": "Framework\\graphicsclass.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-13T07:08:11.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T07:08:11.004Z"
             },
             {
               "$type": "Document",
@@ -65,8 +64,7 @@
               "RelativeToolTip": "Framework\\systemclass.cpp",
               "ViewState": "AgIAAIoAAAAAAAAAAAAAAMQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-13T07:05:18.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T07:05:18.872Z"
             }
           ]
         }

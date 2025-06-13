@@ -33,7 +33,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	XMMATRIX baseViewMatrix;
 
-	std::wstring objPaths[11] = {
+	std::wstring objPaths[14] = {
 		L"./data/Old House.obj",
 		L"./data/ground.obj",
 		L"./data/tank 1.obj",
@@ -44,10 +44,13 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		L"./data/bombardino.obj",
 		L"./data/Old House.obj",
 		L"./data/truck_Launcher.obj",
-		L"./data/truck_body.obj"
+		L"./data/truck_body.obj",
+		L"./data/mine.obj",
+		L"./data/bunker.obj",
+		L"./data/bunker.obj"
 	};
 
-	std::wstring texPaths[11] = {
+	std::wstring texPaths[14] = {
 		L"./data/Old House.dds",
 		L"./data/Ground.dds",
 		L"./data/Tank 1.dds",
@@ -58,13 +61,16 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		L"./data/bombardino.dds",
 		L"./data/Old House.dds",
 		L"./data/truck_Launcher.dds",
-		L"./data/truck_body.dds"
+		L"./data/truck_body.dds",
+		L"./data/mine.dds",
+		L"./data/bunker.dds",
+		L"./data/bunker.dds"
 	};
 
-	int instanceCount[11] = {1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1};
+	int instanceCount[14] = {1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1, 1, 1, 1};
 
 	int objSum = 0;
-	for (int i = 0; i < 11; ++i) {
+	for (int i = 0; i < 14; ++i) {
 		objSum += instanceCount[i];
 	}
 
@@ -95,7 +101,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	
 	int polyNum = 0;
 
-	for (int i = 0; i < 11; i++) {
+	for (int i = 0; i < 14; i++) {
 		ModelClass* model = new ModelClass;
 		if (!model) return false;
 
@@ -352,13 +358,8 @@ bool GraphicsClass::Render(float rotation)
 
 	}
 
-
-
-
-
-
 		
-	for (int i = 0; i < 11; i++)
+	for (int i = 0; i < 14; i++)
 	{
 		XMMATRIX modelworldMatrix = m_Models[i]->GetWorldMatrix();
 
@@ -438,6 +439,19 @@ bool GraphicsClass::Render(float rotation)
 		case 10:
 			modelworldMatrix = XMMatrixScaling(0.1f, 0.1f, 0.1f)
 				* XMMatrixTranslation(90.0f, -26.0f, -30.0f);
+			break;
+		case 11:
+			modelworldMatrix = XMMatrixScaling(0.1f, 0.1f, 0.1f)
+				* XMMatrixTranslation(25.0f, -4.0f, 0.0f);
+			break;
+		case 12:
+			modelworldMatrix = XMMatrixScaling(0.3f, 0.3f, 0.3f)
+				* XMMatrixTranslation(70.0f, -30.0f, 80.0f);
+			break;
+
+		case 13:
+			modelworldMatrix = XMMatrixScaling(0.3f, 0.3f, 0.3f)
+				* XMMatrixTranslation(-45.0f, -23.0f, -70.0f);
 			break;
 		}
 		result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_Models[i]->GetIndexCount(), m_Models[i]->GetInstanceCount(),
