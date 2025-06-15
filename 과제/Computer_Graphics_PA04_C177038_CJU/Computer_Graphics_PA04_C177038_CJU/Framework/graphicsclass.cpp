@@ -12,7 +12,7 @@ GraphicsClass::GraphicsClass()
 
 	m_Bitmap = 0;
 	m_Title = 0;
-	m_ShowTitle = false;
+	m_ShowTitle = true;
 
 }
 
@@ -113,8 +113,10 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 		m_Models.push_back(model);
 
-		polyNum += m_Models[i]->GetIndexCount();
+		polyNum += m_Models[i]->GetIndexCount() * instanceCount[i];
 	}
+	
+	polyNum = polyNum / 3;
 
 	// Create the texture shader object.
 	m_TextureShader = new TextureShaderClass;
@@ -140,7 +142,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 	// Initialize the bitmap object.
-	m_Bitmap->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"./data/Sky.dds", 800, 800, bitMapMatrix);
+	m_Bitmap->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"./data/Sky.dds", screenWidth, screenHeight, bitMapMatrix);
 	
 
 	m_Title = new BitmapClass;
@@ -148,7 +150,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-	m_Title->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"./data/title.dds", 800, 600, bitMapMatrix);
+	m_Title->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"./data/title.dds", screenWidth, screenHeight, bitMapMatrix);
 	
 
 	m_BillboardModel = new ModelClass;
@@ -320,9 +322,9 @@ bool GraphicsClass::Render(float rotation)
 
 	m_D3D->GetOrthoMatrix(orthoMatrix);
 
-	XMMATRIX identity = XMMatrixIdentity();
 
-	
+
+	XMMATRIX identity = XMMatrixIdentity();
 	
 	if(!m_ShowTitle)
 	{
