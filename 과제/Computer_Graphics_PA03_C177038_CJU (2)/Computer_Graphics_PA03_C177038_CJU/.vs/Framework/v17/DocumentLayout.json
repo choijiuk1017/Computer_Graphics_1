@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\data\\textureShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\data\\textureShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\graphicsclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -27,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\modelclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{274A8853-E34E-4290-8A03-C0FB400AA498}|Framework\\Framework.vcxproj|solutionrelative:Framework\\systemclass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Downloads\\1.dds||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
@@ -45,11 +49,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "graphicsclass.h",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\graphicsclass.h",
               "RelativeDocumentMoniker": "Framework\\graphicsclass.h",
@@ -62,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "graphicsclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\graphicsclass.cpp",
               "RelativeDocumentMoniker": "Framework\\graphicsclass.cpp",
@@ -76,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "textureshaderclass.h",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\textureshaderclass.h",
               "RelativeDocumentMoniker": "Framework\\textureshaderclass.h",
@@ -89,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "textureshaderclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\textureshaderclass.cpp",
               "RelativeDocumentMoniker": "Framework\\textureshaderclass.cpp",
@@ -101,12 +105,25 @@
               "IsPinned": true
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "textureShader.hlsl",
+              "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\data\\textureShader.hlsl",
+              "RelativeDocumentMoniker": "Framework\\data\\textureShader.hlsl",
+              "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\data\\textureShader.hlsl",
+              "RelativeToolTip": "Framework\\data\\textureShader.hlsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-10-19T14:17:47.099Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "1.dds",
               "DocumentMoniker": "C:\\Users\\user\\Downloads\\1.dds",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Downloads\\1.dds",
@@ -117,19 +134,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "systemclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\systemclass.cpp",
               "RelativeDocumentMoniker": "Framework\\systemclass.cpp",
               "ToolTip": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\systemclass.cpp",
               "RelativeToolTip": "Framework\\systemclass.cpp",
-              "ViewState": "AgIAABABAAAAAAAAAAD4v/kAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHQAAAAAAAAAAAD4v4wAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-12T15:25:59.173Z"
+              "WhenOpened": "2025-05-12T15:25:59.173Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "cameraclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\cameraclass.cpp",
               "RelativeDocumentMoniker": "Framework\\cameraclass.cpp",
@@ -137,12 +155,11 @@
               "RelativeToolTip": "Framework\\cameraclass.cpp",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAD8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-12T15:25:11.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T15:25:11.115Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "modelclass.cpp",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\modelclass.cpp",
               "RelativeDocumentMoniker": "Framework\\modelclass.cpp",
@@ -154,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "modelclass.h",
               "DocumentMoniker": "C:\\Users\\user\\OneDrive\\\uC0AC\uC9C4\\\uBC14\uD0D5 \uD654\uBA74\\CG(1)\\\uACFC\uC81C\\Computer_Graphics_PA03_C177038_CJU (2)\\Computer_Graphics_PA03_C177038_CJU\\Framework\\modelclass.h",
               "RelativeDocumentMoniker": "Framework\\modelclass.h",

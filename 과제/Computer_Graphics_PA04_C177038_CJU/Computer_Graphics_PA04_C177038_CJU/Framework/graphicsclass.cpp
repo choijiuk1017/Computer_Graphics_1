@@ -113,7 +113,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 		m_Models.push_back(model);
 
-		polyNum += m_Models[i]->GetIndexCount() * instanceCount[i];
+		polyNum += m_Models[i]->GetIndexCount();
 	}
 	
 	polyNum = polyNum / 3;

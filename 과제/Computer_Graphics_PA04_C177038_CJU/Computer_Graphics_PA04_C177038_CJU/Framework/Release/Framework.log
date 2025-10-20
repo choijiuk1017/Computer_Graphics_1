@@ -1,0 +1,13 @@
+﻿  graphicsclass.cpp
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(105,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(139,13): warning C4316: 'BitmapClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(148,12): warning C4316: 'BitmapClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(156,21): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(405,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Framework\graphicsclass.cpp(438,34): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  1 of 563 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG(1)\과제\Computer_Graphics_PA04_C177038_CJU\Computer_Graphics_PA04_C177038_CJU\Release\Framework.exe
