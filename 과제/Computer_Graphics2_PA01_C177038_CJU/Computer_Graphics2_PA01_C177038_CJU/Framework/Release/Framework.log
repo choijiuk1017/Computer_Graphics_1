@@ -1,0 +1,17 @@
+﻿  cameraclass.cpp
+  d3dclass.cpp
+  DDSTextureLoader.cpp
+  graphicsclass.cpp
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(64,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  inputclass.cpp
+  lightclass.cpp
+  lightshaderclass.cpp
+  main.cpp
+  modelclass.cpp
+  systemclass.cpp
+  textureclass.cpp
+  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+  All 481 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Release\Framework.exe
