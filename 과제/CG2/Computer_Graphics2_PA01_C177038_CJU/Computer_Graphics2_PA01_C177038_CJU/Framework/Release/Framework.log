@@ -1,0 +1,11 @@
+﻿  graphicsclass.cpp
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(64,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(304,32): warning C4552: '*': 식의 결과가 사용되지 않습니다.
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(305,32): warning C4552: '*': 식의 결과가 사용되지 않습니다.
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(306,32): warning C4552: '*': 식의 결과가 사용되지 않습니다.
+  코드를 생성하고 있습니다.
+  0 of 481 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Release\Framework.exe

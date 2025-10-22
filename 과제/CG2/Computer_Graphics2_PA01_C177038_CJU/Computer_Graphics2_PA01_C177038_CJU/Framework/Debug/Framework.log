@@ -1,0 +1,15 @@
+﻿  cameraclass.cpp
+  d3dclass.cpp
+  DDSTextureLoader.cpp
+  graphicsclass.cpp
+C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\CG2\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Framework\graphicsclass.cpp(64,23): warning C4316: 'ModelClass': 힙에 할당된 개체가 16에 맞추어져 있지 않을 수도 있습니다
+  inputclass.cpp
+  lightclass.cpp
+  lightshaderclass.cpp
+  main.cpp
+  modelclass.cpp
+  systemclass.cpp
+  textureclass.cpp
+  코드를 생성하고 있습니다...
+  LINK : C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\CG2\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Debug\Framework.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
+  Framework.vcxproj -> C:\Users\user\OneDrive\사진\바탕 화면\CG\과제\CG2\Computer_Graphics2_PA01_C177038_CJU\Computer_Graphics2_PA01_C177038_CJU\Debug\Framework.exe
